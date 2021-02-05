@@ -1,0 +1,23 @@
+
+#username{
+    color: gray;
+    font-size: 25px;
+    margin-top: 15px;
+    text-align: left;
+}
+#user{
+  text-align: left;
+  margin-left: 40px;
+  margin-top: 10px;
+
+}
+#det{
+    text-align: left;
+    font-size: 16px;
+    margin-right: 50px;
+    display: inline-block;
+    color: black;
+}
+#line{
+    margin-top: 60px;
+}

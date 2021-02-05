@@ -15,6 +15,9 @@ export class UsersService {
   getFollwing(id:number){
     return this.http.get<Users[]>('http://localhost:8080/users/following/'+id)
   }
-  
+  register(user: Users) {
+    return this.http.post<Users>("http://localhost:8080/users", user);
+  }
+ 
   constructor(private http:HttpClient) { }
 }

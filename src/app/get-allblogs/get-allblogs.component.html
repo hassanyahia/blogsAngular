@@ -1,20 +1,23 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    </head>
+</head>
+<a class="btn btn-success" routerLink="/blogs/add">Add New Blog</a>
 <div class="card" *ngFor="let item of blogs">
-    <div id ="authorDet">
-    <img id="profileImg" [src]="'http://localhost:8080/'+item.authorImg" >
-    <a routerLink='/users/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>
+    <div id="authorDet">
+        <img id="profileImg" [src]="'http://localhost:8080/'+item.authorImg">
+        <a routerLink='/users/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>
     </div>
-    <div><img [src] = "'http://localhost:8080/'+item.blogImg" style="height: 600px; width: 100%; border-top: 1px solid lightgray;"></div><br>
+    <div><img [src]="'http://localhost:8080/'+item.blogImg" style="height: 600px; width: 100%; border-top: 1px solid lightgray;"></div><br>
     <a id="like"><i class="material-icons" >favorite</i></a>
     <div id="det">10 likes</div>
-    <a routerLink="/blogs/{{item._id}}"><div id="title">{{item.title}}</div></a>
-    <div><span id="createdAt">created At</span>{{item.createdAt}}</div>    
-    <div class="textarea-container" style="border-top: 1px solid lightgray; height: 50px; margin-top: 10px" >
+    <a routerLink="/blogs/{{item._id}}">
+        <div id="title">{{item.title}}</div>
+    </a>
+    <div><span id="createdAt">created At</span>{{item.createdAt}}</div>
+    <div class="textarea-container" style="border-top: 1px solid lightgray; height: 50px; margin-top: 10px">
         <textarea class="form-control" placeholder="Add a comment.." style="width: 90%; height: 100%; border: none; display: inline-flex;"></textarea>
-        <button  style="text-align:top;">post</button>
+        <button style="text-align:top;">post</button>
     </div>
     <div>
-        </div>
-  </div>
+    </div>
+</div>

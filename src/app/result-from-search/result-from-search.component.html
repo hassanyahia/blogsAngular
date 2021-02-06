@@ -10,7 +10,7 @@
     <div><img [src]="'http://localhost:8080/'+item.blogImg" style="height: 600px; width: 100%; border-top: 1px solid lightgray;"></div><br>
     <a id="like"><i class="material-icons" >favorite</i></a>
     <div id="det">10 likes</div>
-    <a routerLink="/blogs/find/{{item._id}}">
+    <a routerLink="/blogs/{{item._id}}">
         <div id="title">{{item.title}}</div>
     </a>
     <div><span id="createdAt">created At</span>{{item.createdAt}}</div>

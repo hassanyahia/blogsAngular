@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  searchvalue:string
+show(t){
+  this.searchvalue=t.value.title
+  console.log(t.value.title)
+}
   constructor() { }
 
   ngOnInit(): void {

@@ -5,7 +5,10 @@
         <img id="user" [src] = "'http://localhost:8080/'+user.userImg" style=" height: 150px;  border-radius: 50%;"><br>
     </div>
     <div class="col-lg-7" style="text-align:left;">
-        <div id="username">{{user.username}}</div><br>
+        <div id="username">
+            {{user.username}}
+            <button class="btn btn-primary">follow</button>
+        </div><br>
         <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
         <a href="users/followers/{{user._id}}"><div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div></a>
         <a href="users/following/{{user._id}}"><span id="det"><span style="font-weight: bolder;">{{numFollowing}}</span> following</span></a>

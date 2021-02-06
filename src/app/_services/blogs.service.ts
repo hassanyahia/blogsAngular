@@ -7,6 +7,9 @@ import { Blogs } from '../_models/blogs'
 export class BlogsService {
   getAll(){
     return this.http.get<Blogs[]>('http://localhost:8080/getAll')
+    }
+    ResultFromSearch(title:string){
+    return this.http.get<Blogs[]>('http://localhost:8080/blogs/search/'+title)
     } 
   getblog(id:number){
     return this.http.get<Blogs>('http://localhost:8080/blogs/'+id)

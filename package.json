@@ -22,7 +22,7 @@
     "@angular/router": "~11.0.6",
     "@auth0/angular-jwt": "^5.0.2",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
-    "bootstrap": "^3.4.1",
+    "bootstrap": "^3.3.7",
     "ng-bootstrap-form-validation": "^9.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

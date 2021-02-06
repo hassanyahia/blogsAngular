@@ -11,14 +11,16 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserblogsComponent } from './userblogs/userblogs.component';
 import { AuthGuard } from './auth.guard';
 import { PostBlogComponent } from './post-blog/post-blog.component';
+import { ResultFromSearchComponent } from './result-from-search/result-from-search.component';
 
 const routes: Routes = [
   { path: 'home', component: GetAllblogsComponent },
-  { path: 'users/add', component: RegisterComponent },
+  { path: 'users/add', component: RegisterComponent},
   { path: 'users/login', component: LoginComponent },
   {path:'users/:id',component:UserProfileComponent},
   { path: 'blogs/add', component: PostBlogComponent },
-  { path: 'blogs/:id', component: UserblogsComponent },
+  { path: 'blogs/find/:id', component: UserblogsComponent },
+  {path:'blogs/search/:title',component:ResultFromSearchComponent},
   { path: 'blogs/', component: MyblogsComponent, canActivate: [AuthGuard] },
   {path:'users/followers/:id',component:GetFollowersComponent},
 {path:'users/following/:id',component:GetFollowingComponent},

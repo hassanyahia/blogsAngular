@@ -21,3 +21,9 @@
 #line{
     margin-top: 60px;
 }
+button{
+    width: 100px;
+    font-size: 18px;
+    height: 35px;
+    margin-left: 10px;
+}

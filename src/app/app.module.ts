@@ -20,6 +20,7 @@ import { GetFollowingComponent } from './get-following/get-following.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { PostBlogComponent } from './post-blog/post-blog.component';
+import { ResultFromSearchComponent } from './result-from-search/result-from-search.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -37,7 +38,8 @@ export function tokenGetter() {
     GetFollowingComponent,
     LoginComponent,
     RegisterComponent,
-    PostBlogComponent
+    PostBlogComponent,
+    ResultFromSearchComponent
   ],
   imports: [
     BrowserModule,

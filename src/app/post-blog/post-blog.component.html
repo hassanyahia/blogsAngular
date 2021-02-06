@@ -7,16 +7,18 @@
             <table class="table ">
                 <tbody>
                     <tr>
-                        <td> <label for="title"><b>Title: </b></label>
-                            <input type="text" formControlName="title" placeholder="Enter Title of blog" name="title" id="title"></td>
+                        <td>
+                            <label for="title"><b>Title: </b></label>
+                            <input type="text" formControlName="title" placeholder="Enter Title of blog" name="title" id="title">
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="Add"><b>Add photo:</b></label>
-                            <input type="file" formControlName="Add"></td>
+                            <input type="file" formControlName="blogImg"></td>
                     </tr>
                     <tr>
                         <td> <label for="content"><b>Content:</b></label>
-                            <textarea class="form-control w-75" id="exampleFormControlTextarea4" rows="6"></textarea></td>
+                            <textarea class="form-control w-75" formControlName="body" id="exampleFormControlTextarea4" rows="6"></textarea></td>
                     </tr>
                     <div class="btnn">
                         <button type="button" class="btn btn-rounded btn-info">create blog</button>

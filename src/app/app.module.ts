@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './auth.guard';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtInterceptor, JwtModule } from '@auth0/angular-jwt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetAllblogsComponent } from './get-allblogs/get-allblogs.component';
@@ -51,14 +51,17 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        //whitelistedDomains: ['localhost:3000'],
-        //blacklistedRoutes: ['localhost:3000/api/auth']
       }
     })
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

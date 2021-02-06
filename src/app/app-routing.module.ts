@@ -14,14 +14,15 @@ import { PostBlogComponent } from './post-blog/post-blog.component';
 
 const routes: Routes = [
   { path: 'home', component: GetAllblogsComponent },
-  { path: 'users', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'users/add', component: RegisterComponent },
   { path: 'users/login', component: LoginComponent },
   {path:'users/:id',component:UserProfileComponent},
-  { path: 'blogs/:id', component: UserblogsComponent },
   { path: 'blogs/add', component: PostBlogComponent },
-  { path: 'blogs', component: MyblogsComponent, canActivate: [AuthGuard] },
+  { path: 'blogs/:id', component: UserblogsComponent },
+  { path: 'blogs/', component: MyblogsComponent, canActivate: [AuthGuard] },
   {path:'users/followers/:id',component:GetFollowersComponent},
-{path:'users/following/:id',component:GetFollowingComponent}
+{path:'users/following/:id',component:GetFollowingComponent},
+{path:'*',component:LoginComponent}
 ];
 
 @NgModule({

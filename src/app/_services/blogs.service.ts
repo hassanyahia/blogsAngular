@@ -17,7 +17,7 @@ export class BlogsService {
     return this.http.get<Blogs[]>('http://localhost:8080/getAll')
   }
   postblog(blog: Blogs) {
-    return this.http.post<Blogs[]>('http://localhost:8080/blogs/add', blog)
+    return this.http.post<Blogs>('http://localhost:8080/blogs/add', blog)
   }
 
   constructor(private http:HttpClient) { }

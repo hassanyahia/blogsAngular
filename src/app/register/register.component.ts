@@ -40,19 +40,15 @@ export class RegisterComponent implements OnInit {
 
   }
   errorMessage: any;
-  onSubmit(login: any) {
-    console.log(login);
+  register(){
+    console.log(this.formGroup.value)
+    this.registerService.register(this.formGroup.value)
+    .subscribe(
+      
 
-    this.registerService.register(login).subscribe(
-      a => {
-        this.router.navigateByUrl('/users/login');
-        alert(' you are registered,try to login now ');
-      },
-      error => {
-        this.errorMessage = error.message;
-        console.error('There was an error!', error);
-      }
-    )
+    );
+
   }
 
+  
 }

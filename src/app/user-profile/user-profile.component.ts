@@ -28,5 +28,31 @@ export class UserProfileComponent implements OnInit {
     }
     )
   }
-
+    Follow(){
+      let id=0;
+    this.ar.params.subscribe(
+      a=>{id=a['id']
+      this.userService.follow(this.user).subscribe(
+        e=>{
+          this.user=e
+          console.log(e)
+        }
+      )
+    }
+    )
+  }
+  UnFollow(){
+    let id=0;
+    this.ar.params.subscribe(
+      a=>{id=a['id']
+      this.userService.unfollow(this.user).subscribe(
+        e=>{
+          this.user=e
+          console.log(e)
+        }
+      )
+    }
+    )
+  
+  }
 }

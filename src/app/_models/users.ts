@@ -7,7 +7,7 @@ export class Users {
         public lastname: String,
         public _id?: String,
         public userImg?: String,
-        public follower?: [String],
-        public following?: [String]) { }
+        public follower?: [number],
+        public following?: [number]) { }
     }
 

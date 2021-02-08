@@ -18,9 +18,34 @@ export class UsersService {
   register(user: Users) {
     return this.http.post<Users>("http://localhost:8080/users/add", user);
   }
-  follow(id:number){
-    return this.http.post<Users>("http://localhost:8080/users/follow/"+id,{})
+  follow(user : Users){
+    let i=0;
+    for(i=0;i<user.follower.length;i++){
+      console.log(user.follower[i])
+      console.log(user._id)
+      if(JSON.parse(localStorage.getItem('USER'))._id===user.follower[i]){
+        alert("already followig")
+        break;
+      }
+    }
+    return this.http.post<Users>("http://localhost:8080/users/follow/"+user._id,{})
   }
+  unfollow(user:Users){
+    let i=0;
+    for(i=0;i<user.follower.length;i++){
+      console.log(user.follower[i])
+      console.log(user._id)
+      if(JSON.parse(localStorage.getItem('USER'))._id!==user.follower[i]){
+        alert("mm")
+      }
+      else{
+        return this.http.post<Users>("http://localhost:8080/users/unfollow/"+user._id,{})
+      }
+    }
+   
+
+  }
+
  
   constructor(private http:HttpClient) { }
 }

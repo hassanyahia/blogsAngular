@@ -7,7 +7,9 @@
     <div class="col-lg-7" style="text-align:left;">
         <div id="username">
             {{user.username}}
-            <button class="btn btn-primary">follow</button>
+          <button class="btn btn-primary" (click)="Follow()">follow</button>
+          <button class="btn btn-warning" (click)="UnFollow()">unfollow</button>
+
         </div><br>
         <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
         <a href="users/followers/{{user._id}}"><div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div></a>

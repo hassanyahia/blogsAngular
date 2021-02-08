@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'users/:id',component:UserProfileComponent},
   {path:'blogs/search/:title',component:ResultFromSearchComponent},
   { path: 'blogs/add', component: PostBlogComponent },
-  { path: 'blogs/:id', component: UserblogsComponent },
+  { path: 'blogs/:id', component: UserblogsComponent,canActivate:[AuthGuard] },
   { path: 'blogs/', component: MyblogsComponent, canActivate: [AuthGuard] },
   {path:'users/followers/:id',component:GetFollowersComponent},
 {path:'users/following/:id',component:GetFollowingComponent},

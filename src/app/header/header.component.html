@@ -36,6 +36,7 @@
 <div id="mySidenav" class="sidenav" >
     <a routerLink="/home">Home</a>
     <a routerLink="blogs/add">Write Blog</a>
+    <a class="btn" [routerLink]="['/']" (click)="logOut()" >LogOut</a>
     <a href="#">Clients</a>
     <a href="#">Contact</a>
     <img src="assets/picside.PNG" style="margin-top: 130%">

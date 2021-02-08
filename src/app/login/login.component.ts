@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  onSubmit(login: any) {
-    console.log(login);
-    this.auth.login(login.username, login.password)
+  submit() {
+    console.log(this.formGroup.value);
+    this.auth.login(this.formGroup.value.username, this.formGroup.value.password)
       .pipe(first())
       .subscribe(
         result => this.router.navigate(['home']),

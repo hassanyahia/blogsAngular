@@ -19,7 +19,7 @@ export class UsersService {
     return this.http.post<Users>("http://localhost:8080/users/add", user);
   }
   follow(id:number){
-    return this.http.post<Users>("http://localhost:8080/users/follow",id)
+    return this.http.post<Users>("http://localhost:8080/users/follow/"+id,{})
   }
  
   constructor(private http:HttpClient) { }

@@ -4,7 +4,7 @@
     </div>
     <div class="col-sm-12 col-lg-4">
         <h4 *ngIf="error">{{error}}</h4>
-        <form class="border border-black p-5" [formGroup]="formGroup" (validSubmit)="onSubmit(formGroup.value)">
+        <form class="border border-black p-5" [formGroup]="formGroup">
 
             <p class="h4 mb-4 text-center">Sign in</p>
 
@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-info btn-block my-4 " type="submit ">Sign in</button>
+            <button class="btn btn-info btn-block my-4 " type="submit" (click)="submit()">Sign in</button>
 
             <div class="text-center ">
                 <p>Not a member?

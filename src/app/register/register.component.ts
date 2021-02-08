@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
       ]),
-      password: new FormControl('123456789', [
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(20)

@@ -22,7 +22,7 @@ export class AuthService implements HttpInterceptor {
   }
 
   logout() {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem('USER');
   }
 
   public get loggedIn(): boolean {

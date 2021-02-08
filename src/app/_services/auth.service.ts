@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Users } from '../_models/users';
 
 
 @Injectable({
@@ -11,10 +12,10 @@ export class AuthService implements HttpInterceptor {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<{ token: string }>('http://localhost:8080/users/login', { username: username, password: password })
+    return this.http.post<Users>('http://localhost:8080/users/login', { username: username, password: password })
       .pipe(
         map(result => {
-          localStorage.setItem('access_token', result.token);
+          localStorage.setItem('USER', JSON.stringify(result));
           return true;
         })
       );
@@ -25,17 +26,17 @@ export class AuthService implements HttpInterceptor {
   }
 
   public get loggedIn(): boolean {
-    return (localStorage.getItem('access_token') !== null);
+    return (localStorage.getItem('USER') !== null);
   }
   getToken() {
     if (this.loggedIn)
-      return localStorage.getItem('access_token');
+      return JSON.parse(localStorage.getItem('USER')).token;
   }
   intercept(req, next) {
-    //console.log(this.getToken());
+    console.log(this.loggedIn);
     let tokenizedreq = req.clone({
       setHeaders: {
-        Authorization: ` ${this.getToken()}`
+        Authorization: this.getToken()
       }
     })
     return next.handle(tokenizedreq)

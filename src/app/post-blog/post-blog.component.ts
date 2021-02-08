@@ -15,19 +15,9 @@ export class PostBlogComponent implements OnInit {
   constructor(private blogService: BlogsService, private router: Router) { }
   formGroup: FormGroup | any;
   ngOnInit(): void { }
-  onSubmit(blog: any) {
-    console.log(blog);
-    this.blogService.postblog(blog).subscribe(
-      a => {
-        this.router.navigateByUrl('/home');
-      },
-      error => {
-        this.errorMessage = error.message;
-        console.error('There was an error!', error);
-      }
-    )
-
+  postblog() {
+    console.log(this.formGroup.value)
+    this.blogService.postblog(this.formGroup.value).subscribe();
   }
+
 }
-
-

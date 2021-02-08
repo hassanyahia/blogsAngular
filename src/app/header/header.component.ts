@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -21,8 +22,10 @@ show(t){
   this.searchvalue=t.value.title
   console.log(t.value.title)
 }
-  constructor() { }
-
+  constructor(public authServise: AuthService) { }
+  logOut() {
+    this.authServise.logout();
+  }
   ngOnInit(): void {
 
   }

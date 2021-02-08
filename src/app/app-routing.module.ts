@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'blogs/', component: MyblogsComponent, canActivate: [AuthGuard] },
   {path:'users/followers/:id',component:GetFollowersComponent},
 {path:'users/following/:id',component:GetFollowingComponent},
-{path:'*',component:LoginComponent}
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({

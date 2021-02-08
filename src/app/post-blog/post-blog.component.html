@@ -2,7 +2,7 @@
     <div class="container" col-4>
         <h1>Create anew Blog</h1>
     </div>
-    <form [formGroup]="formGroup" (validSubmit)="onSubmit(formGroup.value)">
+    <form [formGroup]="formGroup">
         <div class="containeer">
             <table class="table ">
                 <tbody>
@@ -21,7 +21,7 @@
                             <textarea class="form-control w-75" formControlName="body" id="exampleFormControlTextarea4" rows="6"></textarea></td>
                     </tr>
                     <div class="btnn">
-                        <button type="button" class="btn btn-rounded btn-info">create blog</button>
+                        <button type="button" (click)="postblog()" [routerLink]="['/home']" class="btn btn-rounded btn-info">create blog</button>
                         <button type="button" class="btn btn-default">cancel</button>
                     </div>
                 </tbody>

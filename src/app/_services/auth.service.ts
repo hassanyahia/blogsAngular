@@ -30,13 +30,13 @@ export class AuthService implements HttpInterceptor {
   }
   getToken() {
     if (this.loggedIn)
-      return JSON.parse(localStorage.getItem('USER')).token;
+      return JSON.parse(localStorage.getItem('USER'));
   }
   intercept(req, next) {
     console.log(this.loggedIn);
     let tokenizedreq = req.clone({
       setHeaders: {
-        Authorization: this.getToken()
+        Authorization: `${this.getToken()}`
       }
     })
     return next.handle(tokenizedreq)

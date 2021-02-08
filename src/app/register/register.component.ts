@@ -15,23 +15,23 @@ export class RegisterComponent implements OnInit {
   formGroup: FormGroup | any;
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      firstname: new FormControl('Aya', [
+      firstname: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(30)]),
-      lastname: new FormControl('Mohamed', [
+      lastname: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(30)]),
-      username: new FormControl('AyaMo', [
+      username: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(20)]),
-      email: new FormControl('aya@gmail.com', [
+      email: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
       ]),
-      password: new FormControl('12345678', [
+      password: new FormControl('123456789', [
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(20)

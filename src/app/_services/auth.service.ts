@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements HttpInterceptor {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<boolean> {
@@ -26,5 +26,18 @@ export class AuthService {
 
   public get loggedIn(): boolean {
     return (localStorage.getItem('access_token') !== null);
+  }
+  getToken() {
+    if (this.loggedIn)
+      return localStorage.getItem('access_token');
+  }
+  intercept(req, next) {
+    //console.log(this.getToken());
+    let tokenizedreq = req.clone({
+      setHeaders: {
+        Authorization: ` ${this.getToken()}`
+      }
+    })
+    return next.handle(tokenizedreq)
   }
 }

@@ -61,7 +61,7 @@ export function tokenGetter() {
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
+      useClass: AuthService,
       multi: true
     },
   ],

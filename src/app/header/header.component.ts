@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  /* Set the width of the side navigation to 0 */
+   closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
   searchvalue:string
 show(t){
   this.searchvalue=t.value.title
@@ -14,6 +24,7 @@ show(t){
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

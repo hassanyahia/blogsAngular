@@ -4,6 +4,7 @@ import { GetAllblogsComponent } from './get-allblogs/get-allblogs.component';
 import { GetFollowersComponent } from './get-followers/get-followers.component';
 import { GetFollowingComponent } from './get-following/get-following.component';
 import { LoginComponent } from './login/login.component';
+import {ResultFromSearchComponent} from './result-from-search/result-from-search.component'
 
 import { MyblogsComponent } from './myblogs/myblogs.component';
 import { RegisterComponent } from './register/register.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'users/add', component: RegisterComponent},
   { path: 'users/login', component: LoginComponent },
   {path:'users/:id',component:UserProfileComponent},
+  {path:'blogs/search/:title',component:ResultFromSearchComponent},
   { path: 'blogs/add', component: PostBlogComponent },
   { path: 'blogs/:id', component: UserblogsComponent },
   { path: 'blogs/', component: MyblogsComponent, canActivate: [AuthGuard] },

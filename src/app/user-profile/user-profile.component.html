@@ -1,5 +1,5 @@
 
-<div class="container" style="text-align: center;">
+<div class="container" style="text-align: right;">
     <div >
     <div class="col-xs-12 col-lg-4" >
         <img id="user" [src] = "'http://localhost:8080/'+user.userImg" style=" height: 150px;  border-radius: 50%;"><br>
@@ -7,8 +7,8 @@
     <div class="col-lg-7" style="text-align:left;">
         <div id="username">
             {{user.username}}
-          <button class="btn btn-primary" (click)="Follow()">follow</button>
-          <button class="btn btn-warning" (click)="UnFollow()">unfollow</button>
+          <button class="btn btn-primary" (click)="Follow()" >follow</button>
+          <button class="btn btn-warning" (click)="UnFollow()" >unfollow</button>
 
         </div><br>
         <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>

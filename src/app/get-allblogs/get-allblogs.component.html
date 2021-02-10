@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <a class="btn btn-success" routerLink="/blogs/add">Add New Blog</a>
-<div class="card" *ngFor="let item of blogs">
+<div class="card" *ngFor="let item of blogs" style="background: white; border-radius: 15px;">
     <div id="authorDet">
         <img id="profileImg" [src]="'http://localhost:8080/'+item.authorImg">
         <a routerLink='/users/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>

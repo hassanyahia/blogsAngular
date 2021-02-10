@@ -1,3 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700|Sansita+One);
+
+:root {
+  --primary-color: #302AE6;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+  --primary-color: #9A97F3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --bg-color: #161625;
+  --heading-color: #818cab;
+}
+
+
+
+/*slider switch css */
+.theme-switch-wrapper {
+display: flex;
+align-items: center;
+
+}
+.theme-switch {
+display: inline-block;
+height: 32px;
+position: relative;
+width: 60px;
+margin-right: 7px;
+}
+
+.theme-switch input {
+display:none;
+
+}
+
+.slider {
+background-color: #ccc;
+bottom: 0;
+cursor: pointer;
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+transition: .4s;
+}
+
+.slider:before {
+background-color: #fff;
+bottom: 4px;
+content: "";
+height: 26px;
+left: 4px;
+position: absolute;
+transition: .4s;
+width: 26px;
+}
+
+input:checked + .slider {
+background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
 button{
     height: 33px;
 }
@@ -10,7 +87,6 @@ button{
     left: 0;
     background-color: white; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     box-shadow: 0px 0px 5px 5px rgb(240, 238, 238) inset;
   }
@@ -26,14 +102,19 @@ button{
     transition: 0.3s;
     margin-left: 20px;
   }
+
   
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
     color: black
   }
+  #loggedin:focus{
+    color: black;
+    background-color: white;
+  }
   .sidenav a:focus{
       background-color: lightblue;
-      border-radius: 30%;
+      border-radius: 20px;
       color: blue;
   }
   /* Position and style the close button (top right corner) */
@@ -44,7 +125,19 @@ button{
     font-size: 36px;
     margin-left: 50px;
   }
-  
+  #userImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 7px;
+  }
+  svg{
+    margin-right: 6px;
+  }
+  svg:focus{
+    color: blue;
+  }
+ 
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {
     transition: margin-left .5s;
@@ -56,3 +149,4 @@ button{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+  

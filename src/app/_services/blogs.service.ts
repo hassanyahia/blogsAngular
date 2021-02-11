@@ -17,7 +17,7 @@ export class BlogsService {
   getuserblogs(){
     return this.http.get<Blogs[]>('http://localhost:8080/getAll')
   }
-  postblog(blog: Blogs) {
+  postblog(blog: any) {
     return this.http.post<Blogs>('http://localhost:8080/blogs/add', blog)
   }
 

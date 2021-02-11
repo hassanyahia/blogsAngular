@@ -1,9 +1,9 @@
 export class Blogs {
     constructor(
-        public _id: String,
-        public title: String,
-        public body: String,
-        public Author: String,
-        public blogImg: String,
+        public _id: string,
+        public title: string,
+        public body: string,
+        public Author: string,
+        public blogImg: string,
         public createdAt:Date){}
 }

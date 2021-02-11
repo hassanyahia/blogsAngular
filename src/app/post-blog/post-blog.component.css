@@ -1,80 +1,9 @@
-* {
-    box-sizing: border-box;
+#create{
+    margin-top:0px;
 }
-
-h1 {
-    color: hsl(39, 87%, 69%);
+label{
+    font-size: larger;
 }
-
-.all {
-    margin: auto;
-}
-
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-table {
-    width: 80%;
-    border: none;
-    padding: 20px;
-    margin-left: 10%;
-}
-
-tr {
-    padding: 20px;
-    margin-top: 20px;
-    font-size: large;
-    border: none;
-}
-
-input {
-    width: 90%;
-}
-
-td {
-    padding: 20px;
-    margin-top: 20px;
-}
-
-input[type=text] {
-    padding: 15px;
-    border: none;
-    background: #f1f1f1;
-}
-
-input[type=file] {
-    padding: 10px;
-}
-
-input[type=text]:focus {
-    background-color: rgb(255, 236, 236);
-    outline: none;
-}
-
-
-/* Overwrite default styles of hr */
-
-h1 {
-    padding: 20px;
-    float: left;
-}
-
-label {
-    width: 30%;
-    font-size: large;
-    color: rgb(238, 136, 136);
-}
-
-.btnn {
-    margin-left: 300px;
-    padding: 40px;
-}
-
-.btnn button {
-    padding: 20px;
+button{
     margin-left: 10px;
-}
-textarea{
-    resize: none;
 }

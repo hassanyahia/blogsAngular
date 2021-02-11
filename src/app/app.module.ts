@@ -15,7 +15,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserblogsComponent } from './userblogs/userblogs.component';
 import { MyblogsComponent } from './myblogs/myblogs.component';
 import { GetFollowersComponent } from './get-followers/get-followers.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { GetFollowingComponent } from './get-following/get-following.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -47,7 +47,9 @@ export function tokenGetter() {
     HttpClientModule,
     FormsModule,
     NgbModule,
+    NgbPaginationModule,
     ReactiveFormsModule,
+    NgbAlertModule,
     NgBootstrapFormValidationModule.forRoot(),
     NgBootstrapFormValidationModule,
     JwtModule.forRoot({

@@ -1,31 +1,35 @@
-<div class="all" style="margin-left: 20%;">
-    <div class="container" col-4>
-        <h1>Create anew Blog</h1>
-    </div>
-    <form [formGroup]="formGroup">
-        <div class="containeer">
-            <table class="table ">
-                <tbody>
-                    <tr>
-                        <td>
-                            <label for="title"><b>Title: </b></label>
-                            <input type="text" formControlName="title" placeholder="Enter Title of blog" name="title" id="title">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="Add"><b>Add photo:</b></label>
-                            <input type="file" formControlName="blogImg"></td>
-                    </tr>
-                    <tr>
-                        <td> <label for="content"><b>Content:</b></label>
-                            <textarea class="form-control w-75" formControlName="body" id="exampleFormControlTextarea4" rows="6"></textarea></td>
-                    </tr>
-                    <div class="btnn">
-                        <button type="button" (click)="postblog()" [routerLink]="['/home']" class="btn btn-rounded btn-info">create blog</button>
-                        <button type="button" class="btn btn-default">cancel</button>
-                    </div>
-                </tbody>
-            </table>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<div class="container">
+    <div class="row">
+    <div class="col s8 offset-2">
+        <div class="card-panel teal lighten-2">
+            <h4 class="center white-text" id="create">Create New Blog</h4>
         </div>
-    </form>
-</div>
+      <form [formGroup]="addForm" #imageForm=ngForm  >
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text"  formControlName="title" #title ngModel name="title" id="title" required> 
+                    <label for="title"><b><b>Title:</b></b></label>
+                </div>
+            </div>
+               <img [src]="imageUrl"  style="width:250px;height:200px">
+                <input type="file"   #Image accept ="image/*" (change)="handleFileInput($event)"> 
+
+                  <br>
+                     <div>
+                    <label for="content">Content:</label>
+                    <textarea class="form-control" formControlName="body"  #content placeholder="Enter body of blog"rows="6" required></textarea>
+                   </div>
+                   <br>
+                   <div>
+                  
+                    <button type="submit" (click)="AddOne()" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid" >Create</button>
+                    <button type="submit" class="btn-large btn-submit">Cancle</button>
+                    <!-- [disabled]="Image.value=='' || !imageForm.valid" -->
+                   </div>
+                </form>
+       
+    </div>
+    </div>

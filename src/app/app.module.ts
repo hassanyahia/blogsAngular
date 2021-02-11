@@ -22,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { PostBlogComponent } from './post-blog/post-blog.component';
 import { ResultFromSearchComponent } from './result-from-search/result-from-search.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -41,7 +42,8 @@ export function tokenGetter() {
     RegisterComponent,
     PostBlogComponent,
     ResultFromSearchComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    EditBlogComponent
   ],
   imports: [
     BrowserModule,

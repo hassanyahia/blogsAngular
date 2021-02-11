@@ -9,13 +9,13 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-       
+
         <form class="navbar-form navbar-left" role="search" style="margin-left: 30%;">
             <div class="form-group">
-                <input type="text"  class="form-control" placeholder="Search" [(ngModel)]="searchvalue" name="title">
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchvalue" name="title">
             </div>
             <a routerLink="blogs/search/{{searchvalue}}">
-                <button type="submit" class="fa fa-search btn btn-primary" ></button>
+                <button type="submit" class="fa fa-search btn btn-primary"></button>
             </a>
         </form>
         <ul class="nav navbar-nav navbar-right">
@@ -30,7 +30,8 @@
                 </ul>
             </li>
         </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+    <!-- /.navbar-collapse -->
 </nav>
 <div id="mySidenav" class="sidenav" style="padding-top: 30px;" *ngIf="authServise.loggedIn">
     <a id="loggedin" routerLink="/users/{{loggedin._id}}" style="margin-left: -10px;width: 100%;"><img id="userImg" [src] = "'http://localhost:8080/'+loggedin.userImg">{{loggedin.username}}</a>
@@ -67,4 +68,4 @@
   <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
   <div id="main">
     ...
-  </div>
+</div>

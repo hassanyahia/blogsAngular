@@ -1,56 +1,67 @@
-body{
+body {
     background-color: rgb(241, 96, 96);
 }
-.card{
-    margin: 0 auto; 
+
+.card {
+    margin: 0 auto;
     float: none;
     margin-bottom: 10px;
     width: 600px;
     border: 1px solid lightgray;
     margin-bottom: 50px;
 }
-#title{
+
+#title {
     font-size: 25px;
     font-weight: bold;
     margin-left: 10px;
 }
-#comment{
+
+#comment {
     font-size: 20px;
 }
-#like{
+
+#like {
     margin-left: 10px;
 }
-#authorDet{
+
+#authorDet {
     margin-top: 10px;
     margin-left: 10px;
 }
-#profileImg{
+
+#profileImg {
     width: 50px;
-     height: 50px;
-     border-radius: 50%;
-     margin-right: 10px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
-textarea{
+
+textarea {
     resize: none;
     display: inline;
+}
 
+textarea:focus {
+    outline: none;
 }
-textarea:focus{
-outline: none;
-}
-i{
-    color: red;   
+
+i {
+    color: red;
     font-size: 35px;
 }
+
 .textarea-container {
     position: relative;
-  }
-  .textarea-container textarea {
+}
+
+.textarea-container textarea {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-  }
-  .textarea-container button {
+}
+
+.textarea-container button {
     position: absolute;
     top: 0;
     right: 0;
@@ -60,23 +71,19 @@ i{
     border: none;
     color: rgb(72, 72, 226);
     font-weight: bold;
-  }
-  #det{
+}
+
+#det {
     text-align: left;
     font-size: 16px;
     margin-left: 20px;
     color: rgb(95, 93, 93);
     font-weight: bold;
-
 }
-#createdAt{
+
+#createdAt {
     font-weight: bold;
-     margin-left: 10px;
-     color: rgb(95, 93, 93);
-     margin-right: 5px;
+    margin-left: 10px;
+    color: rgb(95, 93, 93);
+    margin-right: 5px;
 }
-
-
-
-
-

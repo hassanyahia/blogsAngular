@@ -20,6 +20,9 @@ export class BlogsService {
   postblog(blog: Blogs) {
     return this.http.post<Blogs>('http://localhost:8080/blogs/add', blog)
   }
+  edit(id: number, blog: Blogs) {
+    return this.http.patch<Blogs>("http://localhost:8080/users/" + id, blog)
+  }
 
   constructor(private http:HttpClient) { }
 }

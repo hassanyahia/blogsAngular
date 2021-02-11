@@ -10,17 +10,18 @@
           <button class="btn btn-primary" (click)="Follow()" *ngIf="Follow()">follow</button>
           <button class="btn btn-warning" (click)="UnFollow()" *ngIf="UnFollow()">unfollow</button>
 
-        </div><br>
-        <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
-        <a href="users/followers/{{user._id}}"><div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div></a>
-        <a href="users/following/{{user._id}}"><span id="det"><span style="font-weight: bolder;">{{numFollowing}}</span> following</span></a>
+            </div><br>
+            <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
+            <a href="users/followers/{{user._id}}">
+                <div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div>
+            </a>
+            <a href="users/following/{{user._id}}"><span id="det"><span style="font-weight: bolder;">{{numFollowing}}</span> following</span></a>
+        </div>
     </div>
 </div>
-</div>
 <div class="container">
-<hr id="line" style="background-color: lightgrey; height: 1px;"> 
+    <hr id="line" style="background-color: lightgrey; height: 1px;">
 </div>
-<app-myblogs *ngIf="blogflag==true" ></app-myblogs>
+<app-myblogs *ngIf="blogflag==true"></app-myblogs>
 <app-get-followers *ngIf="followersflag==true"></app-get-followers>
 <router-outlet></router-outlet>
-

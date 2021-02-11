@@ -1,22 +1,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation" style="background: white; height: 60px;" *ngIf="authServise.loggedIn">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <div style="padding-left: 50%;"> <a class="navbar-brand" [routerLink]="['/home']" style="font-weight: bold; font-size: 30px; font-family: initial;">Blogs</a></div>
+    <div class="navbar-header" style="margin-left: 12%;">
+        <div style="padding-left: 70%;"> <a class="navbar-brand" [routerLink]="['/home']" style="font-weight: bold; font-size: 30px; font-family: initial; display: inline;">
+           <img src="assets/blogsc.gif" style="width: 90px; height: 40px;"></a></div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-       
+
         <form class="navbar-form navbar-left" role="search" style="margin-left: 30%;">
             <div class="form-group">
-                <input type="text"  class="form-control" placeholder="Search" [(ngModel)]="searchvalue" name="title">
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchvalue" name="title">
             </div>
             <a routerLink="blogs/search/{{searchvalue}}">
-                <button type="submit" class="fa fa-search btn btn-primary" ></button>
+                <button type="submit" class="fa fa-search btn btn-primary"></button>
             </a>
         </form>
         <ul class="nav navbar-nav navbar-right">
@@ -31,15 +30,37 @@
                 </ul>
             </li>
         </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+    <!-- /.navbar-collapse -->
 </nav>
-<div id="mySidenav" class="sidenav" >
-    <a routerLink="/home">Home</a>
-    <a routerLink="blogs/add">Write Blog</a>
-    <a class="btn" [routerLink]="['/']" (click)="logOut()" >LogOut</a>
-    <a href="#">Clients</a>
+<div id="mySidenav" class="sidenav" style="padding-top: 30px;" *ngIf="authServise.loggedIn">
+    <a id="loggedin" routerLink="/users/{{loggedin._id}}" style="margin-left: -10px;width: 100%;"><img id="userImg" [src] = "'http://localhost:8080/'+loggedin.userImg">{{loggedin.username}}</a>
+    <a routerLink="/home" style="margin-top: 30px;">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 18" width="24"><path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        Home</a>
+    <a routerLink="blogs/add">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+        </svg>
+        Write Blog</a>
+    <a routerLink="/" (click)="logOut()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" ><path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+        </svg>
+        LogOut</a>
+        <hr id="line" style="background-color: lightgrey; height: 1px;"> 
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox" style="margin-left: 25px;">
+         <input type="checkbox" id="checkbox" [(ngModel)]="value" />
+         <div class="slider round"></div>
+       </label>
+         <label style="size: 15px;">Dark Mode</label>
+       </div>    <a href="#">Clients</a>
     <a href="#">Contact</a>
-    <img src="assets/picside.PNG" style="margin-top: 130%">
+    <img src="assets/picside.PNG" style="margin-top: 50%">
   </div>
   
   <!-- Use any element to open the sidenav -->
@@ -47,4 +68,4 @@
   <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
   <div id="main">
     ...
-  </div>
+</div>

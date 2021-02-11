@@ -14,11 +14,17 @@ export class BlogsService {
   getblog(id:number){
     return this.http.get<Blogs>('http://localhost:8080/blogs/'+id)
   }
-  getuserblogs(){
-    return this.http.get<Blogs[]>('http://localhost:8080/getAll')
+  getuserblogs(id:number){
+    return this.http.get<Blogs[]>('http://localhost:8080/blogs/userBlogs/'+id)
   }
   postblog(blog: any) {
     return this.http.post<Blogs>('http://localhost:8080/blogs/add', blog)
+  }
+  edit(id: number, blog: Blogs) {
+    return this.http.patch<Blogs>("http://localhost:8080/blogs/" + id, blog)
+  }
+  delete(id) {
+    return this.http.delete<Blogs>("http://localhost:3000/Blog/" + id)
   }
 
   constructor(private http:HttpClient) { }

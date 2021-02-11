@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import {Blogs} from '../_models/blogs'
 import {BlogsService} from '../_services/blogs.service'
+import { ActivatedRoute,Router } from '@angular/router';
 
 
 @Component({
@@ -15,16 +16,24 @@ export class MyblogsComponent implements OnInit {
    x=this.numBlogs.length;
 
   date=Date.now().toLocaleString()
-  constructor(private blogservice:BlogsService) { }
-  ngOnInit(): void {
-   this.blogservice.getAll().subscribe(
-     e=>{
-       console.log(e)
-       this.blogs=e;
-       this.numBlogs.push(e)
-     }
+  constructor(private blogservice:BlogsService,public ar:ActivatedRoute,public r:Router) { }
 
-   )
+ 
+  ngOnInit(): void {
+    let id=0;
+    this.ar.params.subscribe(
+      a=>{id=a['id']
+      console.log(a)
+    this.blogservice.getuserblogs(id).subscribe(
+      e=>{
+        this.blogs=e;
+
+      
+      }
+    )
+    }
+    )
+   
   }
 
 }

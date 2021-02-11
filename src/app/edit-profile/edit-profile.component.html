@@ -1,0 +1,18 @@
+
+<form [formGroup]="formGroup"  class="container border border-black p-5 offset-4 col-2 ">
+    <p class="h4 mb-4 text-center">Sign up</p>
+
+    <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
+    <br>
+    <input type="text" formControlName="lastname" class="form-control" placeholder="Last name">
+    <br>
+    <input type="email" formControlName="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <br>
+    <input type="text" formControlName="username" class="form-control" placeholder="User name">
+    <br>
+    <input type="password" formControlName="password" id="defaultLoginFormPassword" class="form-control" placeholder="Password">
+
+    <button type="submit" (click)="Edit()" class="btn btn-info my-4 btn-block" [routerLink]="['/home']"> Sign up</button>
+
+    
+</form>

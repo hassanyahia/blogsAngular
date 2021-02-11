@@ -8,7 +8,8 @@ import { AuthService } from '../_services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   
-  
+  loggedin=null;
+   value=0;
 
 
   searchvalue:string
@@ -21,7 +22,9 @@ show(t){
     this.authServise.logout();
   }
   ngOnInit(): void {
-
+    this.loggedin=JSON.parse(localStorage.getItem('USER'));
+    console.log(this.loggedin);  
   }
+  
 
 }

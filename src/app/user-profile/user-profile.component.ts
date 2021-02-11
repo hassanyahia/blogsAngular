@@ -9,6 +9,7 @@ import { UsersService} from '../_services/users.service'
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  following=0;
   user:Users
   numFollower=0
   numFollowing=0
@@ -24,6 +25,7 @@ export class UserProfileComponent implements OnInit {
         e=>{this.user=e
           this.numFollower=this.user.follower.length
           this.numFollowing=this.user.following.length
+          console.log(e);
         })
     }
     )
@@ -36,6 +38,8 @@ export class UserProfileComponent implements OnInit {
         e=>{
           this.user=e
           console.log(e)
+         this.following=1;
+         console.log(this.following)
         }
       )
     }
@@ -49,10 +53,12 @@ export class UserProfileComponent implements OnInit {
         e=>{
           this.user=e
           console.log(e)
+          this.following=0;
+          console.log(this.following)
+          
         }
       )
     }
     )
-  
   }
 }

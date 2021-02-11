@@ -1,0 +1,34 @@
+<div class="all" style="margin-left: 20%;">
+    <div class="container" col-4>
+        <h1>Edit Blog</h1>
+    </div>
+    <form [formGroup]="formGroup">
+        <div class="containeer">
+            <table class="table ">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="title"><b>Title: </b></label>
+                            <input type="text" formControlName="title" placeholder="Enter Title of blog" name="title" id="title">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="file"><b>edit photo:</b></label>
+                            <input type="file" class="form-control" formControlName="blogImg"  (change)="onFileChange($event)"></td>
+                    </tr>
+                    <tr>
+                        <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+                    </tr>
+                    <tr>
+                        <td> <label for="content"><b>Content:</b></label>
+                            <textarea class="form-control w-75" formControlName="body" id="exampleFormControlTextarea4" rows="6"></textarea></td>
+                    </tr>
+                    <div class="btnn">
+                        <button type="button" (click)="edit()" [routerLink]="['/home']" class="btn btn-rounded btn-info">create blog</button>
+                        <button type="button" class="btn btn-default" (click)="delete()">delete</button>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

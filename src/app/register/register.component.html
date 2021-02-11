@@ -1,18 +1,31 @@
-
-<form [formGroup]="formGroup"  class="container border border-black p-5 offset-4 col-2 ">
+<form [formGroup]="formGroup" class="container border border-black p-5 offset-4 col-2 ">
     <p class="h4 mb-4 text-center">Sign up</p>
 
-    <input type="text" formControlName="firstname" class="form-control" placeholder="First name">
+    <input type="text" #firstname formControlName="firstname" class="form-control" placeholder="First name">
+    <div class="alert alert-danger" *ngIf="formGroup.get('firstname').touched && formGroup.get('firstname').invalid">
+        please enter your first name
+    </div>
     <br>
-    <input type="text" formControlName="lastname" class="form-control" placeholder="Last name">
+    <input type="text" #lastname formControlName="lastname" class="form-control" placeholder="Last name">
+    <div class="alert alert-danger" *ngIf="formGroup.get('lastname').touched && formGroup.get('lastname').invalid">
+        please enter your last name
+    </div>
     <br>
-    <input type="email" formControlName="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="email" #email formControlName="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <div class="alert alert-danger" *ngIf="formGroup.get('email').touched && formGroup.get('email').invalid">
+        please enter your email
+    </div>
     <br>
-    <input type="text" formControlName="username" class="form-control" placeholder="User name">
+    <input type="text" #username formControlName="username" class="form-control" placeholder="User name">
+    <div class="alert alert-danger" *ngIf="formGroup.get('username').touched && formGroup.get('username').invalid">
+        please enter valid username
+    </div>
     <br>
-    <input type="password" formControlName="password" id="defaultLoginFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-
-    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimal 8 characters lenght</small>
+    <input type="password" #password formControlName="password" id="defaultLoginFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <div class="alert alert-danger" *ngIf="formGroup.get('password').touched && formGroup.get('password').invalid">
+        Minimal 8 characters lenght
+    </div>
+    <!-- <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">Minimal 8 characters lenght</small> -->
 
     <button type="submit" (click)="register()" class="btn btn-info my-4 btn-block" [routerLink]="['/users/login']"> Sign up</button>
 

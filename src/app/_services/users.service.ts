@@ -18,13 +18,15 @@ export class UsersService {
   register(user: Users) {
     return this.http.post<Users>("http://localhost:8080/users/add", user);
   }
+  edit(id:number,user:Users){
+    return this.http.patch<Users>("http://localhost:8080/users/edit/"+id,user)
+  }
   follow(user : Users){
     let i=0;
     for(i=0;i<user.follower.length;i++){
       console.log(user.follower[i])
       console.log(user._id)
       if(JSON.parse(localStorage.getItem('USER'))._id===user.follower[i]){
-        alert("already followig")
         break;
       }
     }
@@ -32,19 +34,21 @@ export class UsersService {
   }
   unfollow(user:Users){
     let i=0;
+    let follow=0
     for(i=0;i<user.follower.length;i++){
       console.log(user.follower[i])
       console.log(user._id)
       if(JSON.parse(localStorage.getItem('USER'))._id!==user.follower[i]){
-        alert("mm")
       }
       else{
+        
         return this.http.post<Users>("http://localhost:8080/users/unfollow/"+user._id,{})
       }
     }
    
 
   }
+
 
  
   constructor(private http:HttpClient) { }

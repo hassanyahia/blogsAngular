@@ -1,5 +1,5 @@
 
-<div class="container" style="text-align: center;">
+<div class="container" style="text-align: right;">
     <div >
     <div class="col-xs-12 col-lg-4" >
         <img id="user" [src] = "'http://localhost:8080/'+user.userImg" style=" height: 150px;  border-radius: 50%;"><br>
@@ -7,20 +7,21 @@
     <div class="col-lg-7" style="text-align:left;">
         <div id="username">
             {{user.username}}
-          <button class="btn btn-primary" (click)="Follow()">follow</button>
-          <button class="btn btn-warning" (click)="UnFollow()">unfollow</button>
+          <button class="btn btn-primary" (click)="Follow()" *ngIf="following==0">follow</button>
+          <button class="btn btn-warning" (click)="UnFollow()" *ngIf="following==1">unfollow</button>
 
-        </div><br>
-        <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
-        <a href="users/followers/{{user._id}}"><div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div></a>
-        <a href="users/following/{{user._id}}"><span id="det"><span style="font-weight: bolder;">{{numFollowing}}</span> following</span></a>
+            </div><br>
+            <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
+            <a href="users/followers/{{user._id}}">
+                <div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div>
+            </a>
+            <a href="users/following/{{user._id}}"><span id="det"><span style="font-weight: bolder;">{{numFollowing}}</span> following</span></a>
+        </div>
     </div>
 </div>
-</div>
 <div class="container">
-<hr id="line" style="background-color: lightgrey; height: 1px;"> 
+    <hr id="line" style="background-color: lightgrey; height: 1px;">
 </div>
-<app-myblogs *ngIf="blogflag==true" ></app-myblogs>
+<app-myblogs *ngIf="blogflag==true"></app-myblogs>
 <app-get-followers *ngIf="followersflag==true"></app-get-followers>
 <router-outlet></router-outlet>
-

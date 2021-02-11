@@ -7,7 +7,7 @@ import { Users } from '../_models/users';
 
 @Component({
   selector: 'app-edit-profile',
-  templateUrl: './edit-profile.component.html',
+  templateUrl: './edit-profile.component.html', 
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {

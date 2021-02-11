@@ -19,7 +19,7 @@ export class UsersService {
     return this.http.post<Users>("http://localhost:8080/users/add", user);
   }
   edit(id:number,user:Users){
-    return this.http.patch<Users>("http://localhost:8080/users/"+user._id,{id:id , user:user})
+    return this.http.patch<Users>("http://localhost:8080/users/edit/"+id,user)
   }
   follow(user : Users){
     let i=0;

@@ -22,9 +22,8 @@ show(t){
     this.authServise.logout();
   }
   ngOnInit(): void {
-    this.loggedin=JSON.parse( localStorage.getItem('USER'));
-    console.log(this.loggedin);
-    
+    this.loggedin=JSON.parse(localStorage.getItem('USER'));
+    console.log(this.loggedin);  
   }
   
 

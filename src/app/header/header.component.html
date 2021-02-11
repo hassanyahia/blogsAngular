@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<nav class="navbar navbar-default" role="navigation" style="background: white; height: 60px;">
+<nav class="navbar navbar-default" role="navigation" style="background: white; height: 60px;" *ngIf="authServise.loggedIn">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header" style="margin-left: 12%;">
         <div style="padding-left: 70%;"> <a class="navbar-brand" [routerLink]="['/home']" style="font-weight: bold; font-size: 30px; font-family: initial; display: inline;">
@@ -32,7 +32,7 @@
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>
-<div id="mySidenav" class="sidenav" style="padding-top: 30px;">
+<div id="mySidenav" class="sidenav" style="padding-top: 30px;" *ngIf="authServise.loggedIn">
     <a id="loggedin" routerLink="/users/{{loggedin._id}}" style="margin-left: -10px;width: 100%;"><img id="userImg" [src] = "'http://localhost:8080/'+loggedin.userImg">{{loggedin.username}}</a>
     <a routerLink="/home" style="margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 18" width="24"><path d="M0 0h24v24H0z" fill="none"/>

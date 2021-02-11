@@ -18,6 +18,9 @@ export class UsersService {
   register(user: Users) {
     return this.http.post<Users>("http://localhost:8080/users/add", user);
   }
+  edit(id:number,user:Users){
+    return this.http.patch<Users>("http://localhost:8080/users/"+user._id,{id:id , user:user})
+  }
   follow(user : Users){
     let i=0;
     for(i=0;i<user.follower.length;i++){
@@ -45,6 +48,7 @@ export class UsersService {
    
 
   }
+
 
  
   constructor(private http:HttpClient) { }

@@ -7,8 +7,8 @@
     <div class="col-lg-7" style="text-align:left;">
         <div id="username">
             {{user.username}}
-          <button class="btn btn-primary" (click)="Follow()" >follow</button>
-          <button class="btn btn-warning" (click)="UnFollow()" >unfollow</button>
+          <button class="btn btn-primary" (click)="Follow()" *ngIf="Follow()">follow</button>
+          <button class="btn btn-warning" (click)="UnFollow()" *ngIf="UnFollow()">unfollow</button>
 
         </div><br>
         <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>

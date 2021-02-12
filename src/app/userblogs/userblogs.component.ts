@@ -10,6 +10,7 @@ import { BlogsService } from '../_services/blogs.service';
 })
 export class UserblogsComponent implements OnInit {
   blog:Blogs
+  comment:string
 
   constructor(private blogService:BlogsService,public ar:ActivatedRoute,public r:Router) { }
 
@@ -25,6 +26,19 @@ export class UserblogsComponent implements OnInit {
     }
     )
 
+
+  }
+  postComment(){
+    let id=0;
+    this.ar.params.subscribe(
+      a=>{id=a['id']
+    this.blogService.postComment(id,this.comment).subscribe(
+      e=>{
+        console.log(e)
+      }
+    )
+    }
+    )
 
   }
 

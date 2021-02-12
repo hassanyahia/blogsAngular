@@ -9,5 +9,6 @@ export class Users {
         public userImg?: String,
         public follower?: [number],
         public following?: [number]) { }
+        
     }
 

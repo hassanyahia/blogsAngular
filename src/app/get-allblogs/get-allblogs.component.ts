@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Blogs} from '../_models/blogs'
 import {BlogsService} from '../_services/blogs.service'
 
@@ -9,12 +10,13 @@ import {BlogsService} from '../_services/blogs.service'
 })
 export class GetAllblogsComponent implements OnInit {
   blogs:Blogs[]=[]
+  comment:string;
    date=new Date().getTime()
    blogdate=new Date()
    newdate=new Date
    mille=this.newdate.getTime()
    differ=this.date-this.mille
-  constructor(private blogservice:BlogsService) { }
+  constructor(private blogservice:BlogsService,public ar:ActivatedRoute,public r:Router) { }
   ngOnInit(): void {
    this.blogservice.getAll().subscribe(
      e=>{
@@ -25,4 +27,17 @@ export class GetAllblogsComponent implements OnInit {
    )
   }
 
+  postComment(){
+    let id=0;
+    this.ar.params.subscribe(
+      a=>{id=a['id']
+    this.blogservice.postComment(id,this.comment).subscribe(
+      e=>{
+        console.log(e)
+      }
+    )
+    }
+    )
+
+  }
 }

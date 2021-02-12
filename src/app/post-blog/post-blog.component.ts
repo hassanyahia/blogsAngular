@@ -13,12 +13,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./post-blog.component.css']
 })
 export class PostBlogComponent implements OnInit {
-  imageUrl:string="/assets/img/upload-image.png"
-   blog: Blogs = new Blogs('','', '' , '','', new Date());
+  imageUrl:string="/assets/img/upload-image.png";
+  blog: Blogs = new Blogs('','', '' , '','', new Date());
   formData=new FormData();
-   filetoUpload:File;
-   addForm: FormGroup;
-   file:FileList;
+  filetoUpload:File;
+  addForm: FormGroup;
+  file:FileList;
   
   
    
@@ -26,70 +26,28 @@ export class PostBlogComponent implements OnInit {
     this.addForm = this.fb.group({
       title: [''],
       body: [''],
+      blogImg:['']
     });
    }
  // formGroup: FormGroup | any;
   ngOnInit(): void { }
  
-  handleFileInput(event) {
- /*this.filetoUpload=<any>event;
-   console.log(event);
-  //show image preview
-  console.log(this.filetoUpload,this.formData);
-
-  this.formData.append('blogImg', this.filetoUpload,this.filetoUpload.name);
-   
- var reader = new FileReader();
-  reader.onload =(event:any)=>{
-     this.imageUrl=event.target.restult;
-   }
-   reader.readAsDataURL(this.filetoUpload);*/
-  
-    const reader = new FileReader();
-    
-    if(event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      console.log(file);
-      reader.readAsDataURL(file);
-    
-      reader.onload = () => {
-      
-        this.imageUrl = reader.result as string;
-        
-        this.addForm.patchValue({
-          fileSource: reader.result
-        });
-   
-      };
-   
-    }
-  }
-   
-   
-  
-  
- 
  AddOne() {
-  console.log(this.addForm.value);
-  this.blogService.postblog( this.addForm.value)
-    .subscribe(res => {
-      console.log(res);
-    })
-
-  /*this.formData.append('title',this.blog.title);
-    this.formData.append('body',this.blog.body);
+  this.formData.append('title',this.addForm.get('title').value);
+  this.formData.append('body',this.addForm.get('body').value);
+  this.formData.append('blogImg',this.addForm.get('blogImg').value)
 
     this.blogService.postblog(this.formData).subscribe(
       a => {
         console.log(a);
        this.router.navigateByUrl('home');
-       
       },
       err => {
         console.log(err);
       })
- */
     }
-  
+    imgInput(files:any){
+      this.addForm.get('blogImg').setValue(files.item(0));
+    } 
 }
 

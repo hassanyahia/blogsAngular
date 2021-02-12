@@ -22,14 +22,8 @@ export class UsersService {
     return this.http.patch<Users>("http://localhost:8080/users/edit/"+id,user)
   }
   follow(user : Users){
-    let i=0;
-    for(i=0;i<user.follower.length;i++){
-      console.log(user.follower[i])
-      console.log(user._id)
-      if(JSON.parse(localStorage.getItem('USER'))._id===user.follower[i]){
-        break;
-      }
-    }
+    const following = user.follower.includes(JSON.parse(localStorage.getItem('USER'))._id)
+    console.log(following)
     return this.http.post<Users>("http://localhost:8080/users/follow/"+user._id,{})
   }
   unfollow(user:Users){
@@ -46,7 +40,6 @@ export class UsersService {
       }
     }
    
-
   }
 
 

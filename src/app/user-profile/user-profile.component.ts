@@ -10,7 +10,7 @@ import { UsersService} from '../_services/users.service'
 })
 export class UserProfileComponent implements OnInit {
   following=0;
-  user:Users
+  user:Users;
   numFollower=0
   numFollowing=0
   blogflag:boolean=true;
@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
   }
     Follow(){
       let id=0;
-    this.ar.params.subscribe(
+      this.ar.params.subscribe(
       a=>{id=a['id']
       this.userService.follow(this.user).subscribe(
         e=>{

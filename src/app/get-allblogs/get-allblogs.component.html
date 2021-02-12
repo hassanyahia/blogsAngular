@@ -15,8 +15,8 @@
     </a>
     <div><span id="createdAt">created At</span>{{item.createdAt}}</div>
     <div class="textarea-container" style="border-top: 1px solid lightgray; height: 50px; margin-top: 10px">
-        <textarea class="form-control" placeholder="Add a comment.." style="width: 90%; height: 100%; border: none; display: inline-flex;"></textarea>
-        <button style="text-align:top;">post</button>
+        <textarea [(ngModel)]="comment" class="form-control" placeholder="Add a comment.." style="width: 90%; height: 100%; border: none; display: inline-flex;"></textarea>
+        <button style="text-align:top;" (click)="postComment()">post</button>
     </div>
     <div>
     </div>

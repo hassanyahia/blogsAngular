@@ -27,17 +27,5 @@ export class GetAllblogsComponent implements OnInit {
    )
   }
 
-  postComment(){
-    let id=0;
-    this.ar.params.subscribe(
-      a=>{id=a['id']
-    this.blogservice.postComment(id,this.comment).subscribe(
-      e=>{
-        console.log(e)
-      }
-    )
-    }
-    )
-
-  }
+  
 }

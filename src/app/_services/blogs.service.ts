@@ -26,7 +26,7 @@ export class BlogsService {
   delete(id) {
     return this.http.delete<Blogs>("http://localhost:3000/Blog/" + id)
   }
-  postComment(id:number,body:string){
+  postComment(id:number,body:any){
     return this.http.post<Blogs>("http://localhost:8080/blogs/comment/"+id,body)
   }
 

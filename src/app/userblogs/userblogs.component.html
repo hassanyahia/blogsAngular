@@ -10,9 +10,9 @@
         <div>{{item.body}}</div>
    </div>
    <div class="textarea-container" style="border-top: 1px solid lightgray; height: 50px; margin-top: 10px">
-   <form>
-    <textarea [(ngModel)]="comment" class="form-control" placeholder="Add a comment.." style="width: 90%; height: 100%; border: none; display: inline-flex;"></textarea>
-    <button type="submit" style="text-align:top;" (click)="postComment()">post</button>
+   <form [formGroup]="formGroup"  (ngSubmit)="postComment()">
+    <textarea  name="body" formControlName="body" class="form-control" placeholder="Add a comment.." style="margin-left: 40%; width: 90%; height: 100%; border: none; display: inline-flex;"></textarea>
+    <button type="submit" style="text-align:top;">post</button>
     </form>
 </div>
 </div>

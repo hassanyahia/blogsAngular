@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Blogs } from '../_models/blogs';
 import { BlogsService } from '../_services/blogs.service';
@@ -13,11 +14,16 @@ export class UserblogsComponent implements OnInit {
   comment:string
 
   constructor(private blogService:BlogsService,public ar:ActivatedRoute,public r:Router) { }
+  formGroup: FormGroup | any;
 
   ngOnInit(): void {
+    this.formGroup=new FormGroup({
+      body:new FormControl
+    })
     let id=0;
     this.ar.params.subscribe(
       a=>{id=a['id']
+      console.log(a)
       this.blogService.getblog(id).subscribe(
         e=>{this.blog=e
         console.log(e)
@@ -25,16 +31,17 @@ export class UserblogsComponent implements OnInit {
       )
     }
     )
-
-
   }
   postComment(){
+
     let id=0;
     this.ar.params.subscribe(
       a=>{id=a['id']
-    this.blogService.postComment(id,this.comment).subscribe(
+      console.log(a)
+    this.blogService.postComment(id,this.formGroup.value.body).subscribe(
       e=>{
-        console.log(e)
+        console.log(e)        
+        console.log(this.comment)
       }
     )
     }

@@ -23,6 +23,7 @@ import { PostBlogComponent } from './post-blog/post-blog.component';
 import { ResultFromSearchComponent } from './result-from-search/result-from-search.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
+import { SidebarModule } from 'ng-sidebar';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -60,7 +61,8 @@ export function tokenGetter() {
       config: {
         tokenGetter: tokenGetter,
       }
-    })
+    }),
+    SidebarModule.forRoot()
   ],
   providers: [
     AuthService,

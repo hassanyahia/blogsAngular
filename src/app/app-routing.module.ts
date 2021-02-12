@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { GetAllblogsComponent } from './get-allblogs/get-allblogs.component';
 import { GetFollowersComponent } from './get-followers/get-followers.component';
 import { GetFollowingComponent } from './get-following/get-following.component';

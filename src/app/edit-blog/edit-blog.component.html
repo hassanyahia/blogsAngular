@@ -1,34 +1,32 @@
-<div class="all" style="margin-left: 20%;">
-    <div class="container" col-4>
-        <h1>Edit Blog</h1>
-    </div>
-    <form [formGroup]="formGroup">
-        <div class="containeer">
-            <table class="table ">
-                <tbody>
-                    <tr>
-                        <td>
-                            <label for="title"><b>Title: </b></label>
-                            <input type="text" formControlName="title" placeholder="Enter Title of blog" name="title" id="title">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="file"><b>edit photo:</b></label>
-                            <input type="file" class="form-control" formControlName="blogImg"  (change)="onFileChange($event)"></td>
-                    </tr>
-                    <tr>
-                        <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
-                    </tr>
-                    <tr>
-                        <td> <label for="content"><b>Content:</b></label>
-                            <textarea class="form-control w-75" formControlName="body" id="exampleFormControlTextarea4" rows="6"></textarea></td>
-                    </tr>
-                    <div class="btnn">
-                        <button type="button" (click)="edit()" [routerLink]="['/home']" class="btn btn-rounded btn-info">create blog</button>
-                        <button type="button" class="btn btn-default" (click)="delete()">delete</button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col s8 offset-2">
+            <div class="card-panel teal lighten-2">
+                <h4 class="center white-text" id="create">Edit Blog</h4>
+            </div>
+            <form [formGroup]="editForm" (ngSubmit)="editOne()">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" formControlName="title" name="title" id="title" required>
+                        <label for="title"><b><b>Title:</b></b></label>
                     </div>
-                </tbody>
-            </table>
-        </div>
-    </form>
+                </div>
+                <img [src]="imageUrl" style="width:250px;height:200px">
+                <input type="file" (change)="imgInput($event.target.files)">
+                <br>
+                <div>
+                    <label for="content">Content:</label>
+                    <textarea class="form-control" formControlName="body" placeholder="Enter body of blog" rows="6"
+                        required></textarea>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="btn-large btn-submit">save</button>
+                    <button type="button" class="btn-large btn-submit" (click)="delete()">delete</button>
+                </div>
+            </form>
 </div>
+    </div>

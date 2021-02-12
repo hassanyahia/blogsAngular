@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Blogs } from '../_models/blogs';
 import { BlogsService } from '../_services/blogs.service';
 
@@ -11,10 +10,11 @@ import { BlogsService } from '../_services/blogs.service';
   styleUrls: ['./edit-blog.component.css']
 })
 export class EditBlogComponent implements OnInit {
-  imageSrc: string;
-  formGroup: FormGroup | any;
-  constructor(private blogService: BlogsService, public ar: ActivatedRoute, private http: HttpClient) { }
-  blog: Blogs;
+  imageUrl: string;
+  editForm: FormGroup | any;
+  formData = new FormData();
+  constructor(private blogService: BlogsService, public ar: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
+  blog: Blogs = new Blogs('', '', '', '', '', new Date());
   ngOnInit(): void {
     let id = 0;
     this.ar.params.subscribe(
@@ -22,41 +22,44 @@ export class EditBlogComponent implements OnInit {
         id = a['id']
         this.blogService.getblog(id).subscribe(
           a => {
-            this.blog = a
-            console.log(a);
+            // this.blog = a
+            // console.log(a, "mnk");
+            // this.imageUrl = a.blogImg
+            // console.log(this.imageUrl, "mnk");
+            this.editForm = this.fb.group({
+              title: a.title,
+              body: a.body,
+              blogImg: a.blogImg,
+              tags: a.tags
+            });
           })
       }
     )
   }
-  onFileChange(event) {
-    const reader = new FileReader();
-
-    if (event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      reader.readAsDataURL(file);
-
-      reader.onload = () => {
-
-        this.imageSrc = reader.result as string;
-
-        this.formGroup.patchValue({
-          fileSource: reader.result
-        });
-
-      };
-
-    }
-  }
-  edit() {
+  editOne() {
+    this.formData.append('title', this.editForm.get('title').value);
+    this.formData.append('body', this.editForm.get('body').value);
+    this.formData.append('blogImg', this.editForm.get('blogImg').value)
+    this.formData.append('tags', this.editForm.get('tags').value)
     let id = 0;
     this.ar.params.subscribe(
-      e => {
-        id = e['id']
-        this.blogService.edit(id, this.formGroup.value).subscribe(
-          a => this.blog = a
-        )
+      a => {
+        id = a['id']
+        this.blogService.edit(id, this.formData).subscribe(
+          a => {
+            this.blog = a
+            console.log(a);
+            this.router.navigateByUrl('home');
+          },
+          err => {
+            console.log(err);
+          })
       })
   }
+  imgInput(files: any) {
+    this.editForm.get('blogImg').setValue(files.item(0));
+  }
+
   delete() {
     let id = 0;
     this.ar.params.subscribe(
@@ -65,7 +68,6 @@ export class EditBlogComponent implements OnInit {
         this.blogService.delete(id).subscribe(
           a => {
             console.log(a)
-            //console.log("deleted")
           }
         )
       })

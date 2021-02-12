@@ -20,11 +20,11 @@ export class BlogsService {
   postblog(blog: any) {
     return this.http.post<Blogs>('http://localhost:8080/blogs/add', blog)
   }
-  edit(id: number, blog: Blogs) {
+  edit(id: number, blog: any) {
     return this.http.patch<Blogs>("http://localhost:8080/blogs/" + id, blog)
   }
   delete(id) {
-    return this.http.delete<Blogs>("http://localhost:3000/Blog/" + id)
+    return this.http.delete<Blogs>("http://localhost:8080/blogs/" + id)
   }
   postComment(id:number,body:any){
     return this.http.post<Blogs>("http://localhost:8080/blogs/comment/"+id,body)

@@ -3,8 +3,6 @@
     <img [src]="'http://localhost:8080/'+blog.blogImg" style="height: 500px; width: 500px; "><br>
     <div id="body"> {{blog.body}}</div>
     <div *ngFor="let item of blog.comments">
-        
-    
         <img id="user" [src] = "'http://localhost:8080/'+item.AuthorImg" style=" height: 50px;  border-radius: 50%;">
         <a routerLink='/users/{{item.AuthorId}}'>{{item.AuthorName}}</a><br>
         <div>{{item.body}}</div>

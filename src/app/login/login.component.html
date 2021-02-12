@@ -1,55 +1,48 @@
-<div class="container row " style="display: inline-flex;">
-    <div class="col-lg-6 d-none d-lg-block ">
-        <img src="../../assets/1.PNG" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<div class="container col-8">
+    <div class="card-panel teal lighten-2" style="margin-bottom: 20px;width: 100%;">
+        <h2 class="center white-text">Sign in</h2>
     </div>
-    <div class="col-sm-12 col-lg-4">
-        <h4 *ngIf="error">{{error}}</h4>
-        <form class="border border-black p-5" [formGroup]="formGroup">
-
-            <p class="h4 mb-4 text-center">Sign in</p>
-
-            <input type="text" formControlName="username" class="form-control" placeholder="User name">
-            <br>
-            <input type="password" formControlName="password" id="defaultLoginFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-
-            <div class="d-flex justify-content-between ">
-                <div class="custom-control custom-checkbox ">
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-black active">
-                            <input type="checkbox" class="custom-control-input " id="defaultLoginFormRemember ">Remember me
-                        </label>
-
+    <div class="container row " style="margin-top: 20px; display: inline-flex;">
+        <div class="col-lg-5 d-none d-lg-block ">
+            <img src="../../assets/1.PNG" />
+        </div>
+        <div class="col-sm-12 col-lg-4">
+            <h4 *ngIf="error">{{error}}</h4>
+            <form class="border border-black p-5" [formGroup]="formGroup">
+                <br>
+                <br>
+                <input type="text" formControlName="username" class="form-control" placeholder="User name">
+                <br>
+                <br>
+                <input type="password" formControlName="password" id="defaultLoginFormPassword" class="form-control"
+                    placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                <br>
+                <br>
+                <div class="d-flex justify-content-between ">
+                    <div>
+                        <a href=" ">Forgot password?</a>
                     </div>
+                    <br>
+                    <br>
                 </div>
 
-                <div>
-                    <a href=" ">Forgot password?</a>
+                <button class="btn my-4 " style="margin-left: 30%;color: white;width: 40%;" type="submit" (click)="submit()">Sign
+                    in</button>
+                <br>
+                <br>
+                <div class="text-center ">
+                    <p>Not a member?
+                        <a routerLink="/users/add">Register</a>
+                    </p>
+
+
                 </div>
-            </div>
+            </form>
 
-            <button class="btn btn-info btn-block my-4 " type="submit" (click)="submit()">Sign in</button>
-
-            <div class="text-center ">
-                <p>Not a member?
-                    <a routerLink="/users/add">Register</a>
-                </p>
-
-                <p>or sign in with:</p>
-                <a type="button " class="light-blue-text mx-2 ">
-                    <i class="fab fa-facebook-f "></i>
-                </a>
-                <a type="button " class="light-blue-text mx-2 ">
-                    <i class="fab fa-twitter "></i>
-                </a>
-                <a type="button " class="light-blue-text mx-2 ">
-                    <i class="fab fa-linkedin-in "></i>
-                </a>
-                <a type="button " class="light-blue-text mx-2 ">
-                    <i class="fab fa-github "></i>
-                </a>
-            </div>
-        </form>
-
+        </div>
     </div>
 </div>
 <router-outlet></router-outlet>

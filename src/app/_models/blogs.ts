@@ -5,7 +5,8 @@ export class Blogs {
         public body: string,
         public Author: string,
         public blogImg: string,
-        public createdAt:Date,
+        public createdAt: Date,
+        public tags?: [string],
         public comments?:[Comment]
         ){}
 }

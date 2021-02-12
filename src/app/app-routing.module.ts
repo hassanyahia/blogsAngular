@@ -13,6 +13,7 @@ import { UserblogsComponent } from './userblogs/userblogs.component';
 import { AuthGuard } from './auth.guard';
 import { PostBlogComponent } from './post-blog/post-blog.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 
 const routes: Routes = [
   { path: 'home', component: GetAllblogsComponent, canActivate: [AuthGuard] },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'blogs/search/:title', component: ResultFromSearchComponent, canActivate: [AuthGuard] },
   { path: 'blogs/add', component: PostBlogComponent, canActivate: [AuthGuard] },
+  { path: 'blogs/edit/:id', component: EditBlogComponent, canActivate: [AuthGuard] },
   { path: 'blogs/:id', component: UserblogsComponent, canActivate: [AuthGuard] },
   { path: 'blogs/userBlogs/:id', component: MyblogsComponent, canActivate: [AuthGuard] },
   { path: 'users/followers/:id', component: GetFollowersComponent, canActivate: [AuthGuard] },

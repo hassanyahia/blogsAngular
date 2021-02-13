@@ -25,6 +25,7 @@ export class EditProfileComponent implements OnInit {
       a=>{id=a['id']
       this.userService.getProfile(id).subscribe(
         e => {
+          console.log(e);
           this.formGroup = this.fb.group({
             userImg: e.userImg,
             firstname: e.firstname,
@@ -33,8 +34,8 @@ export class EditProfileComponent implements OnInit {
             username: e.username,
             password: e.password
           });
-        // this.user=e
-          console.log(e);
+          this.user = e
+
         })
     }
     )
@@ -74,9 +75,13 @@ export class EditProfileComponent implements OnInit {
   let id=0;
   this.ar.params.subscribe(
     e=>{id=e['id']
-  this.userService.edit(id,this.formGroup).subscribe
+      this.userService.edit(id, this.formData).subscribe
   (
-      e=>{this.user=e}
+    e => {
+      this.user = e,
+        localStorage.setItem('USER', JSON.stringify(e));
+      this.r.navigateByUrl('users/' + id);
+    }
   )
   }
     

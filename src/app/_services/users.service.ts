@@ -18,10 +18,10 @@ export class UsersService {
   getFollwing(id:number){
     return this.http.get<Users[]>('http://localhost:8080/users/following/'+id)
   }
-  register(user: Users) {
+  register(user: any) {
     return this.http.post<Users>("http://localhost:8080/users/add", user);
   }
-  edit(id:number,user:Users){
+  edit(id: number, user: any) {
     return this.http.patch<Users>("http://localhost:8080/users/edit/"+id,user)
   }
   follow(user : Users){

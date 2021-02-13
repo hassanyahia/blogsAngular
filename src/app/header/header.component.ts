@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   loggedin=null;
    value=0;
   blog: Blogs;
-
+  profileimg: string;
   searchvalue:string
 show(t){
   this.searchvalue=t.value.title
@@ -27,7 +27,12 @@ show(t){
 
   }
   ngOnInit(): void {
-    this.loggedin=JSON.parse(localStorage.getItem('USER'));
+    this.loggedin = JSON.parse(localStorage.getItem('USER'));
+    if (this.loggedin.userImg) {
+      this.profileimg = 'http://localhost:8080/' + this.loggedin.userImg
+    } else {
+      this.profileimg = "/assets/img/user-image.jpg"
+    }
     console.log(this.loggedin); 
     let id = 0;
     this.ar.params.subscribe(

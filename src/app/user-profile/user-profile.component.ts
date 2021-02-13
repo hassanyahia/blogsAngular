@@ -16,7 +16,8 @@ export class UserProfileComponent implements OnInit {
   numFollowing=0
   numBlogs;
   blogflag:boolean=true;
-  followersflag:boolean=false; 
+  followersflag: boolean = false;
+  profileimg: string;
   constructor(private userService:UsersService,public blogService:BlogsService,public ar:ActivatedRoute,public r:Router) { }
 
   ngOnInit(): void {
@@ -28,7 +29,13 @@ export class UserProfileComponent implements OnInit {
         e=>this.numBlogs=e.length
       )
       this.userService.getProfile(id).subscribe(
-        e=>{this.user=e
+        e => {
+          this.user = e
+          if (this.user.userImg) {
+            this.profileimg = 'http://localhost:8080/' + this.user.userImg
+          } else {
+            this.profileimg = "/assets/img/user-image.jpg"
+          }
           this.numFollower=this.user.follower.length
           this.numFollowing=this.user.following.length
           if(this.user._id==(JSON.parse(localStorage.getItem('USER'))._id)){

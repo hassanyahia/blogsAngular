@@ -9,6 +9,9 @@ export class UsersService {
   getProfile(id:number){
     return this.http.get<Users>('http://localhost:8080/users/'+id)
   }
+  getAllusers(){
+    return this.http.get<Users[]>('http://localhost:8080/users')
+  }
   getFollwers(id:number){
     return this.http.get<Users[]>('http://localhost:8080/users/followers/'+id)
   }

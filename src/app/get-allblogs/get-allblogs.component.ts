@@ -9,7 +9,7 @@ import {BlogsService} from '../_services/blogs.service'
   styleUrls: ['./get-allblogs.component.css']
 })
 export class GetAllblogsComponent implements OnInit {
-  likeFlag;
+  likeFlag=[];
   likes:number[]=[]
   blogs:Blogs[]=[]
   comment:string;
@@ -25,10 +25,11 @@ export class GetAllblogsComponent implements OnInit {
        this.blogs=e  
        for(let i=0;i<this.blogs.length;i++){
        if( this.blogs[i].likes.includes(JSON.parse(localStorage.getItem('USER'))._id)){
+         this.likeFlag[i]=1
 
       }
       else{
-        this.likeFlag=0
+        this.likeFlag[i]=0
       }   
     }
      }
@@ -38,7 +39,7 @@ export class GetAllblogsComponent implements OnInit {
    this.blogservice.like(id).subscribe(
      e=>{
        console.log(e)
-       this.likeFlag=1
+       this.likeFlag[id]=1
      }
    )
  }
@@ -46,7 +47,7 @@ export class GetAllblogsComponent implements OnInit {
   this.blogservice.unlike(id).subscribe(
     e=>{
       console.log(e)
-      this.likeFlag=0
+      this.likeFlag[id]=0
     }
   )
 }

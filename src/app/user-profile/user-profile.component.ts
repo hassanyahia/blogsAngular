@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { Users } from '../_models/users';
+import { BlogsService } from '../_services/blogs.service';
 import { UsersService} from '../_services/users.service'
 
 @Component({
@@ -13,15 +14,19 @@ export class UserProfileComponent implements OnInit {
   user:Users;
   numFollower=0
   numFollowing=0
+  numBlogs;
   blogflag:boolean=true;
   followersflag:boolean=false; 
-  constructor(private userService:UsersService,public ar:ActivatedRoute,public r:Router) { }
+  constructor(private userService:UsersService,public blogService:BlogsService,public ar:ActivatedRoute,public r:Router) { }
 
   ngOnInit(): void {
     let id=0;
     this.following=0;
     this.ar.params.subscribe(
       a=>{id=a['id']
+      this.blogService.getuserblogs(id).subscribe(
+        e=>this.numBlogs=e.length
+      )
       this.userService.getProfile(id).subscribe(
         e=>{this.user=e
           this.numFollower=this.user.follower.length

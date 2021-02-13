@@ -5,8 +5,8 @@ export class Users {
         public email: String,
         public firstname: String,
         public lastname: String,
+        public userImg: String,
         public _id?: String,
-        public userImg?: String,
         public follower?: [number],
         public following?: [number]) { }
         

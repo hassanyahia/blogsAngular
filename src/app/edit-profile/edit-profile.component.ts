@@ -12,7 +12,7 @@ import { Users } from '../_models/users';
 })
 export class EditProfileComponent implements OnInit {
   following=0;
-  user:Users
+  user:Users=new Users('', '', '', '', '','','');
   numFollower=0
   numFollowing=0
   imageUrl: string = "/assets/img/user-image.jpg";
@@ -74,7 +74,7 @@ export class EditProfileComponent implements OnInit {
   let id=0;
   this.ar.params.subscribe(
     e=>{id=e['id']
-  this.userService.edit(id,this.formGroup.value).subscribe
+  this.userService.edit(id,this.formGroup).subscribe
   (
       e=>{this.user=e}
   )

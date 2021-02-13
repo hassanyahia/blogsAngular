@@ -33,6 +33,7 @@ export class PostBlogComponent implements OnInit {
     this.blogService.postblog(this.formData).subscribe(
       a => {
         console.log(a);
+        console.log(this.formData)
        this.router.navigateByUrl('home');
       },
       err => {
@@ -41,9 +42,6 @@ export class PostBlogComponent implements OnInit {
     }
   imgInput(files: any) {
     this.addForm.get('blogImg').setValue(files.item(0));
-    // console.log(this.addForm.get('blogImg'), "1")
-    // this.imageUrl = this.addForm.get('blogImg').value.name
-    // console.log(this.imageUrl, "2")
     } 
 }
 

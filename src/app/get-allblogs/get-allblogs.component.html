@@ -8,13 +8,13 @@
     </div>
     <div><img [src]="'http://localhost:8080/'+item.blogImg" style="height: 500px; width: 100%; border-top: 1px solid lightgray;"></div><br>
     <button  (click)="like(item._id)" style="background-color: white;border: none;">
-        <i id="like" class="material-icons" >favorite</i>
+        <i *ngIf="likeFlag[item]==0" id="like" class="material-icons" >favorite</i>
     </button>
     <button  (click)="unlike(item._id)" style="background-color: white;border: none;">
-        <i id="unlike" class="material-icons" >favorite_border</i>
+        <i *ngIf="likeFlag[item]==1" id="unlike" class="material-icons" >favorite_border</i>
     </button>
         
-    <div id="det">{{item.likes.length}}</div>
+    <div id="det">{{item.likes.length}}<span style="margin-left: 5px;">likes</span></div>
     <a routerLink="/blogs/{{item._id}}">
         <div id="title">{{item.title}}</div>
     </a>

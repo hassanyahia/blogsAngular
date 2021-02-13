@@ -9,6 +9,8 @@ import { UsersService } from '../_services/users.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  imageUrl: string = "/assets/img/user-image.jpg";
+  
 
   constructor(private registerService: UsersService, private router: Router) { }
 
@@ -35,7 +37,8 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(20)
-      ])
+      ]),
+      userImg:new FormControl(this.imageUrl)
     })
 
   }
@@ -44,8 +47,10 @@ export class RegisterComponent implements OnInit {
     console.log(this.formGroup.value)
     this.registerService.register(this.formGroup.value)
     .subscribe(
-      
-
+      e=>{
+      console.log(this.formGroup.value)
+      console.log(e)
+      }
     );
 
   }

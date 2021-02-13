@@ -11,7 +11,7 @@
           <button class="btn btn-warning" (click)="UnFollow()" *ngIf="following == 1">following</button>
           <a routerLink="/edit/{{user._id}}"><button *ngIf="following == 2" style="color: black; background-color: #FAFAFA;border:1px solid lightgray;width: 120px;">Edit profile</button></a>
             </div><br>
-            <span id="det"><span style="font-weight: bolder;"></span> Blogs</span>
+            <span id="det"><span style="font-weight: bolder;">{{numBlogs}}</span> Blogs</span>
             <a href="users/{{user._id}}/followes/{{user._id}}">
                 <div id="det"><span style="font-weight: bolder;">{{numFollower}}</span> followers</div>
             </a>

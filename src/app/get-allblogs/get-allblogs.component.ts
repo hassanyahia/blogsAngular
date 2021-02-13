@@ -22,8 +22,9 @@ export class GetAllblogsComponent implements OnInit {
   ngOnInit(): void {
    this.blogservice.getAll().subscribe(
      e=>{
+      let i
        this.blogs=e  
-       for(let i=0;i<this.blogs.length;i++){
+       
        if( this.blogs[i].likes.includes(JSON.parse(localStorage.getItem('USER'))._id)){
          this.likeFlag[i]=1
 
@@ -31,7 +32,7 @@ export class GetAllblogsComponent implements OnInit {
       else{
         this.likeFlag[i]=0
       }   
-    }
+    
      }
    )
   }

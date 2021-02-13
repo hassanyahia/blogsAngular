@@ -46,10 +46,18 @@ textarea:focus {
     outline: none;
 }
 
-i {
-    color: red;
+#like {
     font-size: 35px;
+    color: red;
 }
+#like:checked{
+    border: none;
+}
+#unlike{
+    font-size: 35px;
+    color: black;
+}
+
 
 .textarea-container {
     position: relative;
@@ -86,4 +94,8 @@ i {
     margin-left: 10px;
     color: rgb(95, 93, 93);
     margin-right: 5px;
+}
+.card{
+    box-shadow: 5px 5px 3px 3px lightgray;
+
 }

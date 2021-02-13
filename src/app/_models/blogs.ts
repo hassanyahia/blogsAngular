@@ -7,6 +7,7 @@ export class Blogs {
         public blogImg: string,
         public createdAt: Date,
         public tags?: [string],
-        public comments?:[Comment]
+        public comments?:[Comment],
+        public likes?:[string]
         ){}
 }

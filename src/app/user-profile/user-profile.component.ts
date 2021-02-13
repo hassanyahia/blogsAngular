@@ -9,7 +9,7 @@ import { UsersService} from '../_services/users.service'
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  following=0;
+  following;
   user:Users;
   numFollower=0
   numFollowing=0
@@ -19,16 +19,26 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     let id=0;
+    this.following=0;
     this.ar.params.subscribe(
       a=>{id=a['id']
       this.userService.getProfile(id).subscribe(
         e=>{this.user=e
           this.numFollower=this.user.follower.length
           this.numFollowing=this.user.following.length
-          console.log(e);
+          if(this.user._id==(JSON.parse(localStorage.getItem('USER'))._id)){
+            this.following=2
+          }
+          else if(this.user.follower.includes(JSON.parse(localStorage.getItem('USER'))._id)){
+            this.following=1
+          }
+          else{
+            this.following=0
+          }
         })
     }
     )
+    
   }
     Follow(){
       let id=0;
@@ -38,8 +48,8 @@ export class UserProfileComponent implements OnInit {
         e=>{
           this.user=e
           console.log(e)
-         this.following=1;
          console.log(this.following)
+         this.following=1
         }
       )
     }
@@ -53,12 +63,15 @@ export class UserProfileComponent implements OnInit {
         e=>{
           this.user=e
           console.log(e)
-          this.following=0;
           console.log(this.following)
-          
+          this.following=0
         }
       )
     }
     )
   }
+
+change(){
+  console.log("hi")
+}
 }

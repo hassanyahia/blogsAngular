@@ -8,7 +8,7 @@ export class BlogsService {
   getAll(){
     return this.http.get<Blogs[]>('http://localhost:8080/getAll')
     }
-    ResultFromSearch(title:string){
+  ResultFromSearch(title:string){
     return this.http.get<Blogs[]>('http://localhost:8080/blogs/search/'+title)
     } 
   getblog(id:number){
@@ -28,6 +28,12 @@ export class BlogsService {
   }
   postComment(id:number,body:any){
     return this.http.post<Blogs>("http://localhost:8080/blogs/comment/"+id,body)
+  }
+  like(id:number){
+    return this.http.post<Blogs>("http://localhost:8080/blogs/like/"+id,{})
+  }
+  unlike(id:number){
+    return this.http.post<Blogs>("http://localhost:8080/blogs/unlike/"+id,{})
   }
 
   constructor(private http:HttpClient) { }

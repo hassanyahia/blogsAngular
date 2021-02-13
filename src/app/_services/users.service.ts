@@ -22,8 +22,7 @@ export class UsersService {
     return this.http.patch<Users>("http://localhost:8080/users/edit/"+id,user)
   }
   follow(user : Users){
-    const following = user.follower.includes(JSON.parse(localStorage.getItem('USER'))._id)
-    console.log(following)
+   
     return this.http.post<Users>("http://localhost:8080/users/follow/"+user._id,{})
   }
   unfollow(user:Users){

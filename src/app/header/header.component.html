@@ -9,7 +9,6 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-
         <form class="navbar-form navbar-left" role="search" style="margin-left: 30%;">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchvalue" name="title">
@@ -19,8 +18,8 @@
             </a>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><button type="button" class="btn btn-primary" routerLink="/blogs/edit/{{blog._id}}">edit</button></li>
-            <li><button type="button" class="btn btn-primary" (click)="delete()" style="margin-left: 5%;">delete</button></li>
+            <li><button type="button" class="btn btn-primary" >edit</button></li>
+            <li><button type="button" class="btn btn-primary" (click)="delete()">delete</button></li>
             <!-- <li class="dropdown">
                                                                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">setting <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -35,7 +34,7 @@
     <!-- /.navbar-collapse -->
 </nav>
 <div id="mySidenav" class="sidenav" style="padding-top: 30px;" *ngIf="authServise.loggedIn">
-    <a id="loggedin" routerLink="/users/{{loggedin._id}}" style="margin-left: -10px;width: 100%;"><img id="userImg" [src] = "'http://localhost:8080/'+loggedin.userImg">{{loggedin.username}}</a>
+    <a id="loggedin" routerLink="/users/{{loggedin._id}}/blogs/userBlogs/{{loggedin._id}}" style="margin-left: -10px;width: 100%;"><img id="userImg" [src] = "'http://localhost:8080/'+loggedin.userImg">{{loggedin.username}}</a>
     <a routerLink="/home" style="margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 18" width="24"><path d="M0 0h24v24H0z" fill="none"/>
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>

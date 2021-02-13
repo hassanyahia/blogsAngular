@@ -21,15 +21,17 @@ const routes: Routes = [
   { path: 'edit/:id', component: EditProfileComponent },
   { path: 'users/add', component: RegisterComponent },
   { path: 'users/login', component: LoginComponent },
-  { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] ,children:[{
+    path: 'followers/:id', component: GetFollowersComponent, canActivate: [AuthGuard]},{ 
+    path: 'following/:id', component: GetFollowingComponent, canActivate: [AuthGuard]} ,{
+     path: 'blogs/userBlogs/:id', component: MyblogsComponent, canActivate: [AuthGuard] 
+    }
+  ]},
   { path: 'blogs/search/:title', component: ResultFromSearchComponent, canActivate: [AuthGuard] },
   { path: 'blogs/add', component: PostBlogComponent, canActivate: [AuthGuard] },
   { path: 'blogs/edit/:id', component: EditBlogComponent, canActivate: [AuthGuard] },
-  { path: 'blogs/:id', component: UserblogsComponent, canActivate: [AuthGuard] },
-  { path: 'blogs/userBlogs/:id', component: MyblogsComponent, canActivate: [AuthGuard] },
-  { path: 'users/followers/:id', component: GetFollowersComponent, canActivate: [AuthGuard] },
-  { path: 'users/following/:id', component: GetFollowingComponent, canActivate: [AuthGuard] },
 
+ { path: 'blogs/:id', component: UserblogsComponent, canActivate: [AuthGuard]},
   { path: '**', component: LoginComponent }
 ];
 

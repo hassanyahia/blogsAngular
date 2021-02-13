@@ -1,4 +1,4 @@
-<div class="container" style="text-align: right;">
+<div class="container" style="padding-left: 10%;">
     <div *ngFor="let item of blogs" class="center" style="display: inline; ">
         <a routerLink="/blogs/{{item._id}}"> <img [src]="'http://localhost:8080/'+item.blogImg"
                 style="height: 280px; width: 280px; margin: 15px;"></a>

@@ -9,6 +9,8 @@ import {BlogsService} from '../_services/blogs.service'
   styleUrls: ['./get-allblogs.component.css']
 })
 export class GetAllblogsComponent implements OnInit {
+  likeFlag;
+  likes:number[]=[]
   blogs:Blogs[]=[]
   comment:string;
    date=new Date().getTime()
@@ -20,12 +22,34 @@ export class GetAllblogsComponent implements OnInit {
   ngOnInit(): void {
    this.blogservice.getAll().subscribe(
      e=>{
-       this.blogs=e
-        this.blogdate=this.blogs[1].createdAt
-     }
+       this.blogs=e  
+       for(let i=0;i<this.blogs.length;i++){
+       if( this.blogs[i].likes.includes(JSON.parse(localStorage.getItem('USER'))._id)){
 
+      }
+      else{
+        this.likeFlag=0
+      }   
+    }
+     }
    )
   }
+ like(id){
+   this.blogservice.like(id).subscribe(
+     e=>{
+       console.log(e)
+       this.likeFlag=1
+     }
+   )
+ }
+ unlike(id){
+  this.blogservice.unlike(id).subscribe(
+    e=>{
+      console.log(e)
+      this.likeFlag=0
+    }
+  )
+}
 
   
 }

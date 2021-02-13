@@ -4,11 +4,17 @@
 <div class="card" *ngFor="let item of blogs" style="background: white; border-radius: 15px;">
     <div id="authorDet">
         <img id="profileImg" [src]="'http://localhost:8080/'+item.authorImg">
-        <a routerLink='/users/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>
+        <a routerLink='/users/{{item.userId}}/blogs/userBlogs/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>
     </div>
-    <div><img [src]="'http://localhost:8080/'+item.blogImg" style="height: 600px; width: 100%; border-top: 1px solid lightgray;"></div><br>
-    <a id="like"><i class="material-icons" >favorite</i></a>
-    <div id="det">10 likes</div>
+    <div><img [src]="'http://localhost:8080/'+item.blogImg" style="height: 500px; width: 100%; border-top: 1px solid lightgray;"></div><br>
+    <button  (click)="like(item._id)" style="background-color: white;border: none;">
+        <i id="like" class="material-icons" >favorite</i>
+    </button>
+    <button  (click)="unlike(item._id)" style="background-color: white;border: none;">
+        <i id="unlike" class="material-icons" >favorite_border</i>
+    </button>
+        
+    <div id="det">{{item.likes.length}}</div>
     <a routerLink="/blogs/{{item._id}}">
         <div id="title">{{item.title}}</div>
     </a>

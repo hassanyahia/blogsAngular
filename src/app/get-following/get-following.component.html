@@ -1,1 +1,8 @@
 
+<div class="container" style="text-align: center;">
+    <div *ngFor="let item of followers" class="center" style="display: inline; ">
+        <img id="profileImg" [src]="'http://localhost:8080/'+item.userImg">
+        <a routerLink='/users/{{item._id}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.username}}</a> </div>
+</div>
+
+

@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <nav class="navbar navbar-default" role="navigation" style="background: white; height: 60px;" *ngIf="authServise.loggedIn">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header" style="margin-left: 12%;">
@@ -58,14 +57,12 @@
          <div class="slider round"></div>
        </label>
          <label style="size: 15px;">Dark Mode</label>
-       </div>    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+       </div>  <a routerLink="/about">About</a>
+    <a routerLink="/contact">Contact</a>
     <img src="assets/picside.PNG" style="margin-top: 50%">
   </div>
   
   <!-- Use any element to open the sidenav -->
   
   <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-  <div id="main">
-    ...
-</div>
+ 

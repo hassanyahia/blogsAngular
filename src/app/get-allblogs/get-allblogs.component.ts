@@ -17,19 +17,19 @@ export class GetAllblogsComponent implements OnInit {
   blogs:Blogs[]=[]
   suggesions:Users[]=[]
   comment:string;
-   date=new Date().getTime()
-   blogdate=new Date()
+   blogdate=new Date
    newdate=new Date
-   mille=this.newdate.getTime()
-   differ=this.date-this.mille
   constructor(private userservicve:UsersService, private blogservice:BlogsService,public ar:ActivatedRoute,public r:Router) { }
   ngOnInit(): void {
    this.blogservice.getAll().subscribe(
      e=>{
       this.i=0;
-      this.likeFlag[this.i]=0
-       this.blogs=e  
+      this.likeFlag[this.i]=0 
+       this.blogs=e;
+       this.blogs.sort((a,b)=> 0 - (a > b ? 1 : -1))
        for(let i=0;i<this.blogs.length;i++){
+         this.blogs[i].createdAt=this.blogdate
+         this.blogs[i].createdAt
        if( this.blogs[i].likes.includes(JSON.parse(localStorage.getItem('USER'))._id)){
          this.likeFlag[this.i]=1
         console.log(this.blogs[i])

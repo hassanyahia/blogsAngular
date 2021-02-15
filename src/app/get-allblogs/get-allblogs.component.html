@@ -3,7 +3,7 @@
 </head>
 <div>
     <div class="col-lg-6" style="margin-left: 20%;"> 
-<div class="card" *ngFor="let item of blogs" style="background: white; border-radius: 15px;">
+<div class="card"  *ngFor="let item of blogs" style="background: white; border-radius: 15px;">
     <div id="authorDet">
         <img id="profileImg" [src]="'http://localhost:8080/'+item.authorImg">
         <a routerLink='/users/{{item.userId}}/blogs/userBlogs/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>

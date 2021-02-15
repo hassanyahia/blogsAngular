@@ -5,8 +5,8 @@
     <div style="text-align: center ">
         <h1 style="margin-bottom: 30px;">{{blog.title}}</h1>
         <img [src]="'http://localhost:8080/'+blog.blogImg" style="height: 500px; width: 500px; "><br>
-        <div id="body">
-            <h5> {{blog.body}}</h5>
+        <div>
+            <div style="font-size: 20px;margin-top: 25px;text-align: left;">{{blog.body}}</div>
         </div>
         <button type="button" *ngIf="flag" class="btn my-4" style="color: white;"
             routerLink='/blogs/edit/{{blog._id}}'>edit</button>
@@ -16,7 +16,7 @@
         <form [formGroup]="formGroup" class="border border-black p-5" style="margin-top: 20px; display: inline-flex;"
             (ngSubmit)="postComment()">
             <textarea name="body" formControlName="body" class="form-control" placeholder="Add a comment.."
-                style="width: 1050px;margin-right: 1%;"></textarea>
+                style="width: 1050px; margin-right: 1%;"></textarea>
             <button type="submit" class="btn my-4 " style="margin-top: 1%;color: white;">post</button>
         </form>
         </div>

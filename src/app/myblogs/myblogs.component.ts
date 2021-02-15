@@ -10,7 +10,7 @@ import { ActivatedRoute,Router } from '@angular/router';
   styleUrls: ['./myblogs.component.css']
 })
 export class MyblogsComponent implements OnInit {
-  
+  src="http://localhost:8080/"
   blogs:Blogs[]=[]
   numBlogs=[]
    x=this.numBlogs.length;

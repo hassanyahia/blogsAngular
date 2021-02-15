@@ -68,6 +68,7 @@ export class EditBlogComponent implements OnInit {
         this.blogService.delete(id).subscribe(
           a => {
             console.log(a)
+            this.router.navigateByUrl('home');
           }
         )
       })

@@ -26,6 +26,9 @@ import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { SuggestionsComponent } from './suggestions/suggestions.component';
+
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -47,7 +50,8 @@ export function tokenGetter() {
     EditProfileComponent,
     EditBlogComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    SuggestionsComponent
   ],
   imports: [
     BrowserModule,

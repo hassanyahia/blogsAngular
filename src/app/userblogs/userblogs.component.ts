@@ -12,7 +12,7 @@ import { BlogsService } from '../_services/blogs.service';
 export class UserblogsComponent implements OnInit {
   blog:Blogs
   comment:string
-
+  flag: number;
   constructor(private blogService:BlogsService,public ar:ActivatedRoute,public r:Router) { }
   formGroup: FormGroup | any;
 
@@ -23,14 +23,21 @@ export class UserblogsComponent implements OnInit {
     let id=0;
     this.ar.params.subscribe(
       a=>{id=a['id']
-      console.log(a)
+        console.log(a)
       this.blogService.getblog(id).subscribe(
-        e=>{this.blog=e
+        e => {
+          if (e.Author == JSON.parse(localStorage.getItem('USER')).username) {
+            this.flag = 1;
+          } else {
+            this.flag = 0;
+          }
+          this.blog = e;
+
         console.log(e)
-        }
-      )
-    }
-    )
+        })
+      })
+
+
   }
   postComment(){
 
@@ -47,6 +54,20 @@ export class UserblogsComponent implements OnInit {
     }
     )
 
+  }
+
+  delete() {
+    let id = 0;
+    this.ar.params.subscribe(
+      e => {
+        id = e['id']
+        this.blogService.delete(id).subscribe(
+          a => {
+            this.r.navigateByUrl('home');
+            console.log(a)
+          }
+        )
+      })
   }
 
 }

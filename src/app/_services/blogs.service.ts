@@ -27,7 +27,7 @@ export class BlogsService {
     return this.http.delete<Blogs>("http://localhost:8080/blogs/" + id)
   }
   postComment(id:number,body:any){
-    return this.http.post<Blogs>("http://localhost:8080/blogs/comment/"+id,body)
+    return this.http.post<Blogs>("http://localhost:8080/blogs/comment/"+id,{body})
   }
   like(id:number){
     return this.http.post<Blogs>("http://localhost:8080/blogs/like/"+id,{})

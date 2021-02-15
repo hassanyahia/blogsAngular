@@ -17,8 +17,6 @@
             </a>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><button type="button" class="btn btn-primary" >edit</button></li>
-            <li><button type="button" class="btn btn-primary" (click)="delete()">delete</button></li>
             <!-- <li class="dropdown">
                                                                                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">setting <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -33,7 +31,8 @@
     <!-- /.navbar-collapse -->
 </nav>
 <div id="mySidenav" class="sidenav" style="padding-top: 30px;" *ngIf="authServise.loggedIn">
-    <a id="loggedin" routerLink="/users/{{loggedin._id}}/blogs/userBlogs/{{loggedin._id}}" style="margin-left: -10px;width: 100%;"><img id="userImg" [src] = "'http://localhost:8080/'+loggedin.userImg">{{loggedin.username}}</a>
+    <a id="loggedin" routerLink="/users/{{loggedin._id}}/blogs/userBlogs/{{loggedin._id}}"
+        style="margin-left: -10px;width: 100%;"><img id="userImg" [src]="profileImg">{{loggedin.username}}</a>
     <a routerLink="/home" style="margin-top: 30px;">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 18" width="24"><path d="M0 0h24v24H0z" fill="none"/>
             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -65,4 +64,6 @@
   <!-- Use any element to open the sidenav -->
   
   <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
- 
+  <div id="main">
+    
+</div>

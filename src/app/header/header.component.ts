@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   loggedin=null;
    value=0;
   blog: Blogs;
-
+  profileImg: string;
   searchvalue:string
 show(t){
   this.searchvalue=t.value.title
@@ -27,8 +27,13 @@ show(t){
 
   }
   ngOnInit(): void {
-    this.loggedin=JSON.parse(localStorage.getItem('USER'));
-    console.log(this.loggedin); 
+    this.loggedin = JSON.parse(localStorage.getItem('USER'));
+    if (this.loggedin.userImg) {
+      this.profileImg = 'http://localhost:8080/' + this.loggedin.userImg
+    } else {
+      this.profileImg = "/assets/img/user-image.jpg"
+    }
+    console.log(this.loggedin);
     let id = 0;
     this.ar.params.subscribe(
       a => {
@@ -39,19 +44,6 @@ show(t){
             console.log(this.blog._id)
           })
       })
-  }
-  delete() {
-    let id = 0;
-    this.ar.params.subscribe(
-      e => {
-        id = e['id']
-        this.blogService.delete(id).subscribe(
-          a => {
-            this.router.navigateByUrl('home');
-            console.log(a)
-          }
-        )
-      })
-  }
 
+  }
 }

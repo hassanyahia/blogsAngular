@@ -1,7 +1,9 @@
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-<div class="card" *ngFor="let item of blogs" style="background: white; border-radius: 15px;">
+<div>
+    <div class="col-lg-6" style="margin-left: 20%;"> 
+<div class="card"  *ngFor="let item of blogs" style="background: white; border-radius: 15px;">
     <div id="authorDet">
         <img id="profileImg" [src]="'http://localhost:8080/'+item.authorImg">
         <a routerLink='/users/{{item.userId}}/blogs/userBlogs/{{item.userId}}' style="font-size: 20px; color: black; display: inline;" class="m-2">{{item.Author}}</a><br><br>
@@ -11,10 +13,10 @@
         <i id="like" class="material-icons" >favorite</i>
     </button>
     <button  (click)="unlike(item._id)" style="background-color: white;border: none;">
-        <i id="unlike" class="material-icons" >favorite_border</i>
+        <i  id="unlike" class="material-icons" >favorite_border</i>
     </button>
         
-    <div id="det">{{item.likes.length}}</div>
+    <div id="det">{{item.likes.length}}<span style="margin-left: 5px;">likes</span></div>
     <a routerLink="/blogs/{{item._id}}">
         <div id="title">{{item.title}}</div>
     </a>
@@ -23,6 +25,24 @@
         <textarea [(ngModel)]="comment" class="form-control" placeholder="Add a comment.." style="width: 90%; height: 100%; border: none; display: inline-flex;"></textarea>
         <button style="text-align:top;" (click)="postComment()">post</button>
     </div>
-    <div>
+    
+</div>
     </div>
+<div class="col-lg-3">
+    <div style="position: fixed;">
+        <div style="margin-bottom: 20px;">
+            <span style="font-size: 20px;color: gray;padding-bottom: 20px;">Suggesions for you</span>
+            </div>
+    <div class="scrollmenu" >
+       
+        <div *ngFor="let item of suggesions">
+        <a routerLink='/users/{{item._id}}/blogs/userBlogs/{{item._id}}'
+         style="font-size: 16px;text-align: left;" href="#home"><img id="profileImg" 
+          [src]="'http://localhost:8080/'+item.userImg">{{item.username}}</a>
+        </div>
+
+        ...
+      </div>
+      </div>
+</div>
 </div>

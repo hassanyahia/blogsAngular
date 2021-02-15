@@ -12,9 +12,10 @@ body {
 }
 
 #title {
-    font-size: 25px;
+    font-size: 28px;
     font-weight: bold;
     margin-left: 10px;
+    font-style: unset;
 }
 
 #comment {
@@ -99,3 +100,21 @@ textarea:focus {
     box-shadow: 5px 5px 3px 3px lightgray;
 
 }
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    width: 150%;
+    
+    
+  }
+  
+  div.scrollmenu a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  
